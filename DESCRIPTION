@@ -1,6 +1,6 @@
 Package: RegionalCurve
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Stores regional curve data and accessor functions. 
 Version: 0.1.0
 Author: Michael Dougherty
 Maintainer: The package maintainer <yourself@somewhere.net>
