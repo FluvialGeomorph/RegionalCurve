@@ -9,5 +9,5 @@ devtools::use_data_raw()
 # Create the Regional_Curve_Database.Rmd file to process the data
 
 # Add the data to the package
-devtools::use_data(regional_curve, regional_curve_graphs, overwrite = TRUE)
-
+devtools::use_data(regional_curve, overwrite = TRUE)
+devtools::use_data(regional_curve_graphs, internal = TRUE, overwrite = TRUE)
