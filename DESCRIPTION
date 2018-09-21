@@ -1,9 +1,9 @@
 Package: RegionalCurve
 Type: Package
-Title: Stores regional curve data and accessor functions. 
+Title: A Collection of Hydraulic Regional Curve Relationships. 
 Version: 0.1.0
 Author: Michael Dougherty
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: Michael Dougherty <Michael.P.Dougherty@usace.army.mil>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
