@@ -8,8 +8,7 @@ library(dplyr)
 library(tidyr)
 library(knitr)
 library(kableExtra)
-library(devtools)
-load_all("..")
+library(RegionalCurve)
 ```
 
 
