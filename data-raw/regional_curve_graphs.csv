@@ -1,0 +1,13 @@
+source,region_name,dimension,x_1,x_2,y_1,y_2
+Dunne & Leopold (1978),Eastern United States,area,1,1000,23,2200
+Dunne & Leopold (1978),Eastern United States,width,1,1000,15,205
+Dunne & Leopold (1978),Eastern United States,depth,1,1000,1.6,11
+Dunne & Leopold (1978),San Francisco Bay,area,1,1000,27,1900
+Dunne & Leopold (1978),San Francisco Bay,width,1,1000,18,210
+Dunne & Leopold (1978),San Francisco Bay,depth,1,1000,1.7,9
+Dunne & Leopold (1978),Upper Green River,area,1,1000,9.3,800
+Dunne & Leopold (1978),Upper Green River,width,1,1000,7.5,175
+Dunne & Leopold (1978),Upper Green River,depth,1,1000,1.4,4.2
+Dunne & Leopold (1978),Upper Salmon River,area,1,1000,5.2,440
+Dunne & Leopold (1978),Upper Salmon River,width,1,1000,7,110
+Dunne & Leopold (1978),Upper Salmon River,depth,1,1000,0.7,4

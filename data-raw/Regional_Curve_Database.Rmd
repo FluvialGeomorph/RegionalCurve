@@ -1,0 +1,97 @@
+---
+title: "Regional Curve Database"
+output: html_document
+---
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(kableExtra)
+
+# Source FluvialGeomorph functions
+source("//mvrdfs/egis/Work/Office/Regional/ERDC/EMRRP_Sediment/Methods/FluvialGeomorphr/HydraulicGeometry2.R")
+```
+
+
+# Introduction
+This document describes the process for developing a database of regional hydraulic geometry. Regional hydraulic geometry is typically reported in the literature in one of two forms:
+
+* Graph - The relationships are graphed and no functional form of the relationship is provided. The site data used to develop the relationship is not provided and is therefore impossible to create a function. Typical of the oldest studies. 
+* Graph with Power Equation - The relationships are graphed and a function is provided. The site data used to develop the functional relationship is provided (to a varying extent). All modern studies express this relationship using a power equation. 
+
+To create a comprehensive database of regional hydraulic geometry, the ability to incorporate relationships from both types of studies was deemed important. The oldest studies contain only a graph of each relationship (without the orginal data nor a power function defining the relationship). The method for capturing the relationship uses a pair of coordinates representing two points along the log-linear relationship line, one at the lower end (drainage area = 1) and another at the higher end. The technique for deriving a hydraulic dimension from these two points given a specific drainage area is described below. The file `regional_curve_graphs.csv` contains the data extracted from these older studies. 
+
+Newer regional hydraulic geometry studies provide the data used and the parameters for a power function in a standard form. The widespread use of a standard power function allows a database to be developed which records the function parameters along with key defining metadata about the relationship. Functions that extract these function parameters allow the rapid calculation of hydraulic geometry for any record in the database. The file `regional_curve_equations.csv` contains the data extracted from these newer studies. 
+
+To allow use of the older data along with newer data, the strategy used in this study is to calculate the power function coefficients from the older studies and add these records to those of the newer studies.
+
+# Interpolating power function coefficients from a Log-Log Plot
+Regional curves are typically displayed on log-log plots. The method for interpolating a value from a log-log plot is described [here](https://en.wikipedia.org/wiki/Log%E2%80%93log_plot). This method is required to extract the formula for calculating the y-axis value on these graphs (i.e., cross-sectional area, width, mean depth) from the x-axis value (i.e., drainage area). Monomial relationships of the form $y=ax^m$, known as power functions, appear as straight lines in a log–log graph, with the exponent ($m$) and constant ($a$) term corresponding to slope and intercept of the line ($y = mx + b$).
+
+The slope $m$ is calculated using the following formula:
+
+$$
+\begin{equation}
+  m = \frac{log(y_2) - log(y_1)}{log(x_2) - log(x_1)} = \frac{log(y_2/y_1)}{log(x_2/x_1)}
+\end{equation}
+$$
+
+<Add methods for calculating the intercept>
+
+# Import Regional Curve Data
+Import the `regional_curve_graphs.csv` table and the `regional_curve_equations.csv` table. 
+
+```{r}
+# Import data
+regional_curve_graphs <- read.csv(file = "regional_curve_graphs.csv")
+regional_curve_equations <- read.csv(file = "regional_curve_equations.csv")
+```
+
+
+# Convert log-log graphed relationships to a power function
+Use the `RHG_graph_coefficients` function to calculate the power equation intercept (constant) and slope (exponent) values and write them to a new data frame.
+
+```{r warning=FALSE}
+# Create a list to hold the region dimension coefficients
+region_dims <- list()
+# Iterate through rows in the regional_curve_graph
+for (i in 1:nrow(regional_curve_graphs)) {
+  region_dims[[i]] <- RHG_graph_coefficients(region = regional_curve_graphs[i,"region_name"],
+                                             drainageArea = 1,
+                                             dimensionType = regional_curve_graphs[i,"dimension"])
+}
+# Append all of the region_dims list items into a data frame
+regions <- bind_rows(region_dims)
+
+# Set regions colunm names to match regional_curves_equation
+colnames(regions) <- c("region_name","drainageArea","dimension","slope","intercept","reference")
+# Append the regions dataframe to the regional_curves_equation data frame
+regional_curve <- bind_rows(regional_curve_equations, regions[,-2])
+# Reassign factors
+regional_curve$region_name <- factor(regional_curve$region_name)
+regional_curve$dimension   <- factor(regional_curve$dimension)
+```
+
+# Save regional curve data frames
+```{r}
+# Save data frames
+save(regional_curve, regional_curve_graphs, file = "regional_curve.RData")
+```
+
+# Summarize regional analyses
+```{r}
+# Create a summary table describing dimensions available for each region
+regional_curve %>%
+spread(key = dimension, value = slope) %>%
+group_by(region_name, reference) %>%
+summarise(width     = any(width > 0), 
+          depth     = any(depth > 0), 
+          area      = any(area  > 0),
+          discharge = any(discharge > 0)) %>%
+kable(format = "html", 
+      col.names = c("Region","Reference","Width","Depth","Area","Discharge")) %>%
+kable_styling()
+```
+
+
