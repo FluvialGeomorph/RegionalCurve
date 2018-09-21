@@ -15,9 +15,14 @@ devtools::add_build_ignore(".create_package_steps.R")
 
 
 ## Test
+# Create the testing infrastructure
 devtools::use_testthat()
 
+
 ## Document
+# Add roxygen2 comments to .R files
+# Delete the original NAMESPACE file (document() will recreate)
+devtools::document()
 
 
 ## Add Data

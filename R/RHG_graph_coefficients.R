@@ -1,3 +1,5 @@
+#' Compute power function coefficients
+#'
 #' Computes the regional curve power function coefficients from a table of
 #' regional hydraulic curve coordinates contained in a built-in table.
 #'
