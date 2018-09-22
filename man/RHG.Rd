@@ -21,9 +21,7 @@ the dimension (in square miles).}
 The numeric value of the requested hydraulic dimension.
 }
 \description{
-Computes hydraulic geometry dimension (cross sectional area, width, depth,
-discharge) from a built-in table of regional hydraulic equation
-coefficients.
+Computes hydraulic geometry dimensions
 }
 \examples{
 # Calculate the discharge for a 200 sq mi watershed in Massachusetts.

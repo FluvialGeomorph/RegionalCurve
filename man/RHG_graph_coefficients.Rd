@@ -2,8 +2,7 @@
 % Please edit documentation in R/RHG_graph_coefficients.R
 \name{RHG_graph_coefficients}
 \alias{RHG_graph_coefficients}
-\title{Computes the regional curve power function coefficients from a table of
-regional hydraulic curve coordinates contained in a built-in table.}
+\title{Compute power function coefficients}
 \usage{
 RHG_graph_coefficients(region, drainageArea, dimensionType)
 }

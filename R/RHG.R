@@ -1,8 +1,8 @@
-#' Computes hydraulic geometry dimensions
+#' @title Computes hydraulic geometry dimensions
 #'
-#' Computes hydraulic geometry dimension (cross sectional area, width, depth,
-#' discharge) from a built-in table of regional hydraulic equation
-#' coefficients.
+#' @Description Computes hydraulic geometry dimension (cross sectional area,
+#'     width, depth, discharge) from a built-in table of regional hydraulic
+#'     equation coefficients.
 #'
 #' @export
 #' @param region         character; The region that a dimension will be

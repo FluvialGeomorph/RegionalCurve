@@ -12,7 +12,7 @@ devtools::add_build_ignore(".create_package_steps.R")
 
 
 ## Write Code
-
+# Added RHG.R and RHG_graph_coefficients.R functions
 
 ## Test
 # Create the testing infrastructure
@@ -42,5 +42,5 @@ devtools::use_data(regional_curve_graphs, internal = TRUE, overwrite = TRUE)
 
 
 ## Teach
-
+devtools::use_vignette()
 
