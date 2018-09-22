@@ -1,3 +1,5 @@
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs"))
+
 #' @title Compute power function coefficients
 #'
 #' @description  Computes the regional curve power function coefficients from
@@ -13,8 +15,6 @@
 #' @param dimensionType character; The dimension type: "area", "depth", "width"
 #'
 #' @return The value of the requested hydraulic dimension
-#'
-#' @examples
 #'
 RHG_graph_coefficients <- function(region, drainageArea, dimensionType) {
   # Subset the RHG curve for the selected region and dimension

@@ -1,6 +1,8 @@
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve"))
+
 #' @title Computes hydraulic geometry dimensions
 #'
-#' @Description Computes hydraulic geometry dimension (cross sectional area,
+#' @description Computes hydraulic geometry dimension (cross sectional area,
 #'     width, depth, discharge) from a built-in table of regional hydraulic
 #'     equation coefficients.
 #'

@@ -23,7 +23,9 @@ The numeric value of the requested hydraulic dimension. The units
         width: feet, discharge: cubic feet per second
 }
 \description{
-Computes hydraulic geometry dimensions
+Computes hydraulic geometry dimension (cross sectional area,
+    width, depth, discharge) from a built-in table of regional hydraulic
+    equation coefficients.
 }
 \examples{
 # Calculate the discharge for a 200 sq mi watershed in Massachusetts.

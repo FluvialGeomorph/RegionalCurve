@@ -6,10 +6,17 @@ library(devtools)
 
 ## Package Structure
 # Ignore this file
-devtools::add_build_ignore(".create_package_steps.R")
+devtools::use_build_ignore("create_package_steps.R")
+
 
 ## Setup
+# Add the following line to DESCRIPTION to support .rda file compression
+# Depends: R (>= 2.10)
 
+# Use packages needed by functions, vignettes, etc.
+devtools::use_package("dplyr", "Suggests")
+devtools::use_package("kableExtra", "Suggests")
+devtools::use_package("tidyr", "Suggests")
 
 ## Write Code
 # Added RHG.R and RHG_graph_coefficients.R functions
@@ -18,6 +25,8 @@ devtools::add_build_ignore(".create_package_steps.R")
 # Create the testing infrastructure
 devtools::use_testthat()
 
+# Run the tests
+devtools::test()
 
 ## Document
 # Add roxygen2 comments to .R files
@@ -40,7 +49,12 @@ devtools::use_data(regional_curve_graphs, internal = TRUE, overwrite = TRUE)
 
 ## Organize
 
+# Update the package documentation
+devtools::document()
 
 ## Teach
+# Create the vignette infrastructure
 devtools::use_vignette()
 
+# Build the vignette (re-run after each set of edits)
+devtools::build_vignettes()
