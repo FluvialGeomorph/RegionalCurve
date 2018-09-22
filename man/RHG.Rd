@@ -18,7 +18,9 @@ the dimension (in square miles).}
 "discharge"}
 }
 \value{
-The numeric value of the requested hydraulic dimension.
+The numeric value of the requested hydraulic dimension. The units
+        of the dimensions are as follows: area: square feet, depth: feet,
+        width: feet, discharge: cubic feet per second
 }
 \description{
 Computes hydraulic geometry dimensions

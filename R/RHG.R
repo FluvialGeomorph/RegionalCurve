@@ -13,7 +13,9 @@
 #' @param dimensionType  character; Dimension type: "area", "depth", "width",
 #'                       "discharge"
 #'
-#' @return The numeric value of the requested hydraulic dimension.
+#' @return The numeric value of the requested hydraulic dimension. The units
+#'         of the dimensions are as follows: area: square feet, depth: feet,
+#'         width: feet, discharge: cubic feet per second
 #'
 #' @examples
 #' # Calculate the discharge for a 200 sq mi watershed in Massachusetts.

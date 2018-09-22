@@ -20,8 +20,9 @@ the dimension (in square miles).}
 The value of the requested hydraulic dimension
 }
 \description{
-Computes the regional curve power function coefficients from a table of
-regional hydraulic curve coordinates contained in a built-in table.
+Computes the regional curve power function coefficients from
+    a table of regional hydraulic curve coordinates contained in a built-in
+    table.
 }
 \examples{
 

@@ -12,5 +12,9 @@ Description: This package contains data from a broad range of studies that
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Suggests: testthat
+Suggests: testthat,
+    knitr,
+    rmarkdown
 RoxygenNote: 6.1.0
+VignetteBuilder: knitr
+Imports: knitr

@@ -1,0 +1,79 @@
+---
+title: "Get Regional Hydraulic Dimensions"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    fig_caption: yes
+vignette: >
+  %\VignetteIndexEntry{Get Regional Hydraulic Dimensions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(kableExtra)
+library(RegionalCurve)
+
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+Regional hydraulic dimension relationships have been produced in great numbers since the first development of the approach by Dunne and Leopold (1978). Although these regional relatiionships are in wide use, the author is not aware of a comprehensive compilation of regional hydraulic dimension relationship studies into a single database that exists as open source. The `RegionalCurve` package seeks to fill that gap by:
+* Compiling regional hydraulic relationships into a single database.
+* Providing assessor functions to streamline application of these relationships in other studies.
+
+# The Power Function
+Early in the development of these relationships it was discovered that dimensions such as bankfull width, mean bankfull depth, bankfull cross sectional area, and discharge ploted against drainage area were log-linear. Therefore monomial relationships of the form $y=ax^m$, known as power functions (with the exponent ($m$) and constant ($a$) term corresponding to the slope and intercept of the line ($y = mx + b$), which appear as straight lines in a log–log graph, were adopted to simplify the representation of these relationships. This standardization of the functional form of these relationships allowed the approach to become widely adopted and conducive to compliation into a single database. Recording only two coefficients (i.e., slope and intercept) of the power function allows the relationship to be used to estimate hydraulic dimensions for any arbitrary drainage area (within the range of the original study). 
+
+# Regional Analyses Contained in this Database
+Figure 1 lists the regional hydraulic dimension relationship studies included in this package. It lists the dimensions calculated for each regional analysis. 
+
+```{r echo=FALSE, fig.cap="Regional Hydraulic Dimension by Drainage Area Studies Included in this Package."}
+# Create a summary table describing dimensions available for each region
+regional_curve %>%
+spread(key = dimension, value = slope) %>%
+group_by(region_name, reference) %>%
+summarise(width     = any(width > 0), 
+          depth     = any(depth > 0), 
+          area      = any(area  > 0),
+          discharge = any(discharge > 0)) %>%
+kable(format = "html", 
+      col.names = c("Region","Reference","Width","Depth","Area","Discharge")) %>%
+kable_styling()
+```
+
+# Calculating Hyrdaulic Dimensions
+To easily use the data in this database several assessor functions were created to calculate an estimate of a specified hydraulic dimension for any given drainage area. The `RHG` (Regional Hydraulic Geometry) function computes the hydraulic geometry dimension (cross sectional area, width, depth, discharge) from a built-in data frame of regional hydraulic equation coefficients (`regional_curve`). 
+
+```{r}
+# Calculate the discharge for a 200 sq mi watershed in Massachusetts.
+RHG(region = "MA", drainageArea = 200,   dimensionType = "width")
+```
+
+The units of the value returned from the `RHG` function will depend on the requested dimension (see the `RHG` function help for details). In this case, the requested dimension was `width`, so the units will be in feet. 
+
+To determine which regions are available, the `regional_curve` data frame can be queried. 
+
+```{r}
+# Determine the available regions
+levels(regional_curve$region_name)
+```
+
+This list of regions can be used to determine which regions are contained in the database and the input `region` string value to use for the `RHG` function. 
+
+
+Once you have determined which region to use, you will need to determine which dimensions that study derived a relationship for. Not all studies derive relationships for all hydraulic dimensions. 
+
+```{r}
+# Determine which dimensions were calculated for the Eastern United States region
+regional_curve[regional_curve$region_name == "Eastern United States", c("dimension")]
+```
+
+As you can see, only area, width, and depth are available. Discharge was not derived by this study. 
+

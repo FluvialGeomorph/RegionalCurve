@@ -15,7 +15,7 @@ library(RegionalCurve)
 # Introduction
 This document describes the process for developing a database of regional hydraulic geometry. Regional hydraulic geometry is typically reported in the literature in one of two forms:
 
-* Graph - The relationships are graphed and no functional form of the relationship is provided. The site data used to develop the relationship is not provided and is therefore impossible to create a function. Typical of the oldest studies. 
+* Graph - The relationships are graphed and no functional form of the relationship is provided. The site data used to develop the relationship is not provided and is therefore impossible to create a function. This is typical of the oldest studies. 
 * Graph with Power Equation - The relationships are graphed and a function is provided. The site data used to develop the functional relationship is provided (to a varying extent). All modern studies express this relationship using a power equation. 
 
 To create a comprehensive database of regional hydraulic geometry, the ability to incorporate relationships from both types of studies was deemed important. The oldest studies contain only a graph of each relationship (without the orginal data nor a power function defining the relationship). The method for capturing the relationship uses a pair of coordinates representing two points along the log-linear relationship line, one at the lower end (drainage area = 1) and another at the higher end. The technique for deriving a hydraulic dimension from these two points given a specific drainage area is described below. The file `regional_curve_graphs.csv` contains the data extracted from these older studies. 
