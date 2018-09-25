@@ -22,4 +22,3 @@ Suggests: testthat,
     RegionalCurve
 RoxygenNote: 6.1.0
 VignetteBuilder: knitr
-Imports: RegionalCurve
