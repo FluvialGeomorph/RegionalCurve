@@ -48,9 +48,9 @@ devtools::use_data(regional_curve_graphs, internal = TRUE, overwrite = TRUE)
 
 
 ## Organize
-
 # Update the package documentation
 devtools::document()
+
 
 ## Teach
 # Create the vignette infrastructure
@@ -58,3 +58,9 @@ devtools::use_vignette()
 
 # Build the vignette (re-run after each set of edits)
 devtools::build_vignettes()
+
+
+## Check
+# Use devtools::check() as RStudio check fails when repository is stored on a
+# network drive
+devtools::check()

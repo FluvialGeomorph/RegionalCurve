@@ -18,6 +18,8 @@ Suggests: testthat,
     rmarkdown,
     dplyr,
     kableExtra,
-    tidyr
+    tidyr,
+    RegionalCurve
 RoxygenNote: 6.1.0
 VignetteBuilder: knitr
+Imports: RegionalCurve
