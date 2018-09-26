@@ -3,7 +3,7 @@ An R Package of Hydraulic Regional Curve Relationships
 
 ## Package Status
 
-[![Travis-CI Build Status](https://travis-ci.org/mpdougherty/regionalcurve.svg?branch=master)](https://travis-ci.org/mpdougherty/regionalcurve) [![codecov](https://codecov.io/github/mpdougherty/regionalcurve/branch/master/graphs/badge.svg)](https://codecov.io/github/mpdougherty/regionalcurve) 
+[![Travis-CI Build Status](https://travis-ci.org/mpdougherty/RegionalCurve.svg?branch=master)](https://travis-ci.org/mpdougherty/RegionalCurve) [![codecov](https://codecov.io/github/mpdougherty/regionalcurve/branch/master/graphs/badge.svg)](https://codecov.io/github/mpdougherty/regionalcurve) 
 
 
 ## Install
