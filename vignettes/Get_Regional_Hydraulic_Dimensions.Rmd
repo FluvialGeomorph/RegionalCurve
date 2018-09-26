@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 # Introduction
 Regional hydraulic dimension relationships have been produced in great numbers since the first development of the approach by Dunne and Leopold (1978). Although these regional relatiionships are in wide use, the author is not aware of a comprehensive compilation of regional hydraulic dimension relationship studies into a single database that exists as open source. The `RegionalCurve` package seeks to fill that gap by:
 * Compiling regional hydraulic relationships into a single database.
-* Providing assessor functions to streamline application of these relationships in other studies.
+* Providing asessor functions to streamline application of these relationships in other studies.
 
 # The Power Function
 Early in the development of these relationships it was discovered that dimensions such as bankfull width, mean bankfull depth, bankfull cross sectional area, and discharge ploted against drainage area were log-linear. Therefore monomial relationships of the form $y=ax^m$, known as power functions (with the exponent ($m$) and constant ($a$) term corresponding to the slope and intercept of the line ($y = mx + b$), which appear as straight lines in a log–log graph, were adopted to simplify the representation of these relationships. This standardization of the functional form of these relationships allowed the approach to become widely adopted and conducive to compliation into a single database. Recording only two coefficients (i.e., slope and intercept) of the power function allows the relationship to be used to estimate hydraulic dimensions for any arbitrary drainage area (within the range of the original study). 
