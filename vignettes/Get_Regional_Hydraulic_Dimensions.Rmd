@@ -17,10 +17,7 @@ library(knitr)
 library(kableExtra)
 library(RegionalCurve)
 
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
 # Introduction

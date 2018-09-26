@@ -64,3 +64,11 @@ devtools::build_vignettes()
 # Use devtools::check() as RStudio check fails when repository is stored on a
 # network drive
 devtools::check()
+
+
+## Continuous Integration
+# https://bookdown.org/rdpeng/RProgDA/continuous-integration.html
+# Use travis to test on Linux
+devtools::use_travis()
+# Use AppVeyor to test on Windows
+devtools::use_appveyor()

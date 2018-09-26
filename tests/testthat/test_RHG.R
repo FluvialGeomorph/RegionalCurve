@@ -1,4 +1,3 @@
-library(RegionalCurve, lib.loc = "..")
 context("RHG")
 
 test_that("dimensionType = 'width'", {
