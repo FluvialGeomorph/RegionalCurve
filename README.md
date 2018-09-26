@@ -1,6 +1,12 @@
 # RegionalCurve
 An R Package of Hydraulic Regional Curve Relationships
 
+## Package Status
+
+|Linux |Windows|
+|------|-------|
+|[![Travis-CI Build Status](https://travis-ci.org/mpdougherty/regionalcurve.svg?branch=master)](https://travis-ci.org/mpdougherty/regionalcurve)| |
+
 ## Install
 To install the `RegionalCurve` package, install from GitHub using the `devtools` package:
 
