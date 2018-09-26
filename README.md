@@ -18,3 +18,5 @@ browseVignettes("RegionalCurve")
 # Open a specific vignette in the RStudio help window
 vignette("Get_Regional_Hydraulic_Dimensions")
 ```
+## Funding
+Funding for development and maintenance of `RegionalCurve` was provided by the US Army Corps of Engineers (USACE) [Ecosystem Management and Restoration Research Program (EMRRP)](https://emrrp.el.erdc.dren.mil/emrrp.html). 
