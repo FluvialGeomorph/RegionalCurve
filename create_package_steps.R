@@ -72,3 +72,9 @@ devtools::check()
 devtools::use_travis()
 # Use AppVeyor to test on Windows
 devtools::use_appveyor()
+
+# Check status of Travis CI builds
+# https://travis-ci.org/mpdougherty/RegionalCurve
+
+# Check status of AppVeyor builds
+# https://ci.appveyor.com/project/mpdougherty/regionalcurve
