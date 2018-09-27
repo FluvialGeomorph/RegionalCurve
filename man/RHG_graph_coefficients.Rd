@@ -37,7 +37,7 @@ Regional curves are typically displayed on log-log plots. This
 }
 \examples{
 # Calculate the slope and intercept for a watershed with drainage area = 1
-  square mile in the Eastern United States region.
+# square mile in the Eastern United States region.
 RHG_graph_coefficients(region = "Eastern United States",
                        drainageArea = 1,
                        dimensionType = "area")
