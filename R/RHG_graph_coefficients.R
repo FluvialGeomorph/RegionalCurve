@@ -14,7 +14,24 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs")
 #'                      the dimension (in square miles).
 #' @param dimensionType character; The dimension type: "area", "depth", "width"
 #'
-#' @return The value of the requested hydraulic dimension
+#' @return A data frame containing the value of slope (\eqn{m}) and intercept
+#'     (\eqn{a}) for the requested region and hydraulic dimension.
+#'
+#' @details Regional curves are typically displayed on log-log plots. This
+#'     method is required to extract the formula for calculating the y-axis
+#'     value on these graphs (i.e., cross-sectional area, width, mean depth)
+#'     from the x-axis value (i.e., drainage area). Monomial relationships of
+#'     the form \eqn{y=ax^m}, known as power functions, appear as straight
+#'     lines in a log–log graph, with the exponent (\code{m}) and constant
+#'     (\eqn{a}) term corresponding to slope and intercept of the line
+#'     (\eqn{y = mx + b}).
+#'
+#' @examples
+#' # Calculate the slope and intercept for a watershed with drainage area = 1
+#' # square mile in the Eastern United States region.
+#' RHG_graph_coefficients(region = "Eastern United States",
+#'                        drainageArea = 1,
+#'                        dimensionType = "area")
 #'
 RHG_graph_coefficients <- function(region, drainageArea, dimensionType) {
   # Subset the RHG curve for the selected region and dimension
@@ -23,9 +40,9 @@ RHG_graph_coefficients <- function(region, drainageArea, dimensionType) {
   # Calculate the slope
   m <- log(rc$y_2 / rc$y_1 ) / (log(rc$x_2 / rc$x_1))
   # Calculate the hydrologic geometry for the selected region and dimension
-  k <- rc$y_1
+  a <- rc$y_1
   # Create a data frame to hold the coefficients
-  coefficients <- data.frame(region, drainageArea, dimensionType, m, k,
+  coefficients <- data.frame(region, drainageArea, dimensionType, m, a,
                              rc$source)
   return(coefficients)
 }

@@ -78,3 +78,7 @@ devtools::use_appveyor()
 
 # Check status of AppVeyor builds
 # https://ci.appveyor.com/project/mpdougherty/regionalcurve
+
+# Check status of test code coverage
+# https://codecov.io/gh/mpdougherty/RegionalCurve
+

@@ -17,10 +17,29 @@ the dimension (in square miles).}
 \item{dimensionType}{character; The dimension type: "area", "depth", "width"}
 }
 \value{
-The value of the requested hydraulic dimension
+A data frame containing the value of slope (\eqn{m}) and intercept
+    (\eqn{a}) for the requested region and hydraulic dimension.
 }
 \description{
 Computes the regional curve power function coefficients from
     a table of regional hydraulic curve coordinates contained in a built-in
     table.
+}
+\details{
+Regional curves are typically displayed on log-log plots. This
+    method is required to extract the formula for calculating the y-axis
+    value on these graphs (i.e., cross-sectional area, width, mean depth)
+    from the x-axis value (i.e., drainage area). Monomial relationships of
+    the form \eqn{y=ax^m}, known as power functions, appear as straight
+    lines in a log–log graph, with the exponent (\code{m}) and constant
+    (\eqn{a}) term corresponding to slope and intercept of the line
+    (\eqn{y = mx + b}).
+}
+\examples{
+# Calculate the slope and intercept for a watershed with drainage area = 1
+  square mile in the Eastern United States region.
+RHG_graph_coefficients(region = "Eastern United States",
+                       drainageArea = 1,
+                       dimensionType = "area")
+
 }

@@ -27,6 +27,14 @@ Computes hydraulic geometry dimension (cross sectional area,
     width, depth, discharge) from a built-in table of regional hydraulic
     equation coefficients.
 }
+\details{
+This function uses values in the \code{regional_curve} data frame
+    to calculate hydraulic geometry dimensions. Monomial relationships of
+    the form \eqn{y=ax^m}, known as power functions, appear as straight
+    lines in a log–log graph, with the exponent (\code{m}) and constant
+    (\eqn{a}) term corresponding to slope and intercept of the line
+    (\eqn{y = mx + b}).
+}
 \examples{
 # Calculate the discharge for a 200 sq mi watershed in Massachusetts.
 RHG(region = "MA", drainageArea = 200, dimensionType = "discharge")
