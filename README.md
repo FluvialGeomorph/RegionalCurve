@@ -1,5 +1,5 @@
 # RegionalCurve
-An R Package of Hydraulic Regional Curve Relationships <img src="man/figures/castle.tif" align="right" />
+An R Package of Hydraulic Regional Curve Relationships <img src="man/figures/castle.png" align="right" />
 
 ## Package Status
 
