@@ -5,10 +5,7 @@ library(knitr)
 library(kableExtra)
 library(RegionalCurve)
 
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 
 ## ----echo=FALSE, fig.cap="Regional Hydraulic Dimension by Drainage Area Studies Included in this Package."----
 # Create a summary table describing dimensions available for each region

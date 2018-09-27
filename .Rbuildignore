@@ -3,3 +3,4 @@
 ^data-raw$
 ^create_package_steps\.R$
 ^\.travis\.yml$
+^appveyor\.yml$
