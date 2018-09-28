@@ -18,20 +18,26 @@ devtools::use_package("dplyr", "Suggests")
 devtools::use_package("kableExtra", "Suggests")
 devtools::use_package("tidyr", "Suggests")
 
+
 ## Write Code
 # Added RHG.R and RHG_graph_coefficients.R functions
+
 
 ## Test
 # Create the testing infrastructure
 devtools::use_testthat()
 
+
 # Run the tests
 devtools::test()
+
 
 ## Document
 # Add roxygen2 comments to .R files
 # Delete the original NAMESPACE file (document() will recreate)
 devtools::document()
+
+# Add qpdf.exe to the path to compress pdf's to resolve R CMD CHECK warnings
 
 
 ## Add Data
