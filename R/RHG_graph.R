@@ -2,6 +2,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs")
 
 #' @title Compute hydraulic geometry from graph
 #'
+#' @export
 #' @description  Computes hydraulic dimension (cross sectional area, width,
 #'     or depth) from a built-in table of regional hydraulic curve graph
 #'     coordinates.
