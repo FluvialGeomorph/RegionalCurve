@@ -32,8 +32,9 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve"))
 #'
 RHG <- function(region, drainageArea, dimensionType) {
   # Subset for the selected region and dimension
-  rc <- regional_curve[regional_curve$region_name == region &
-                       regional_curve$dimension == dimensionType,]
+  rc <- RegionalCurve::regional_curve[RegionalCurve::regional_curve$region_name
+                                      == region &
+                  RegionalCurve::regional_curve$dimension == dimensionType,]
   # Calculate the hydrologic geometry for the selected region and dimension
   dimension <- rc$intercept * drainageArea ^ rc$slope
   # Return the calculated dimension

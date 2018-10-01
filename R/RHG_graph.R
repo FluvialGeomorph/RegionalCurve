@@ -16,7 +16,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs")
 #'
 #' @return The value of the requested hydraulic dimension
 #'
-#' @example
+#' @examples
 #' # Calculate the cross sectional area for a watershed with drainage area = 1
 #' # square mile in the Eastern United States region.
 #' RHG_graph(region = "Eastern United States",

@@ -24,3 +24,11 @@ Computes hydraulic dimension (cross sectional area, width,
     or depth) from a built-in table of regional hydraulic curve graph
     coordinates.
 }
+\examples{
+# Calculate the cross sectional area for a watershed with drainage area = 1
+# square mile in the Eastern United States region.
+RHG_graph(region = "Eastern United States",
+          drainageArea = 1,
+          dimensionType = "area")
+
+}
