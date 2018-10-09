@@ -39,11 +39,10 @@ devtools::document()
 
 # Add qpdf.exe to the path to compress pdf's to resolve R CMD CHECK warnings
 
+# Use .Rmd file to build Readme
+devtools::use_readme_rmd()
+
 # Add badges to Readme
-# Add yaml header to Readme.Rmd
-#---
-#  output: github_document
-#---
 badgecreatr::badgeplacer(status = "active")
 
 
