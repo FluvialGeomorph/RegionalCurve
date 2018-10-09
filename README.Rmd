@@ -1,0 +1,49 @@
+---
+output: github_document
+---
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
+[![Build Status](https://travis-ci.org/search/search.svg?branch=master)](https://travis-ci.org/search/search)
+[![codecov](https://codecov.io/gh/search/search/branch/master/graph/badge.svg)](https://codecov.io/gh/search/search)
+ 
+---
+ 
+[![minimal R version](https://img.shields.io/badge/R%3E%3D-NA-6666ff.svg)](https://cran.r-project.org/)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/RegionalCurve)](https://cran.r-project.org/package=RegionalCurve)
+[![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/master)
+ 
+---
+ 
+[![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
+
+# RegionalCurve
+An R Package of Hydraulic Regional Curve Relationships <img src="man/figures/castle.png" align="right" />
+
+## Package Status
+
+[![Experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle)
+[![Travis-CI Build Status](https://travis-ci.org/mpdougherty/RegionalCurve.svg?branch=master)](https://travis-ci.org/mpdougherty/RegionalCurve)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/mpdougherty/regionalcurve?branch=master&svg=true)](https://ci.appveyor.com/project/mpdougherty/regionalcurve) [![codecov](https://codecov.io/github/mpdougherty/regionalcurve/branch/master/graphs/badge.svg)](https://codecov.io/github/mpdougherty/regionalcurve) 
+
+## Install
+To install the `RegionalCurve` package, install from GitHub using the 
+`devtools` package:
+
+```r
+library(devtools)
+install_github(repo = "mpdougherty/RegionalCurve", build_vignettes = TRUE)
+```
+## Vignettes
+View the vignettes to get started using the package.
+
+```r
+# View the vignettes in a web browser
+browseVignettes("RegionalCurve")
+
+# Open a specific vignette in the RStudio help window
+vignette("Get_Regional_Hydraulic_Dimensions")
+```
+## Funding
+Funding for development and maintenance of `RegionalCurve` was provided by the 
+US Army Corps of Engineers (USACE) [Ecosystem Management and Restoration 
+Research Program (EMRRP)](https://emrrp.el.erdc.dren.mil). <img src="man/figures/EMRRP_logo_300.png" align="right" />

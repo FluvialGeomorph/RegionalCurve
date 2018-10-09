@@ -9,7 +9,7 @@ Description: This package contains data from a broad range of studies that
     compiled into a single table to provide a comprehensive one-stop source. 
     Accessor functions have also been included to streamline application of 
     dimensions in other analyses. 
-License: GPL-3
+License: CC0
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 2.10)

@@ -39,6 +39,13 @@ devtools::document()
 
 # Add qpdf.exe to the path to compress pdf's to resolve R CMD CHECK warnings
 
+# Add badges to Readme
+# Add yaml header to Readme.Rmd
+#---
+#  output: github_document
+#---
+badgecreatr::badgeplacer(status = "active")
+
 
 ## Add Data
 # Create the /data-raw folder and add to .Rbuildignore
