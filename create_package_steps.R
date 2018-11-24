@@ -3,6 +3,7 @@
 # https://www.rstudio.com/wp-content/uploads/2015/06/devtools-cheatsheet.pdf
 
 library(devtools)
+library(usethis)
 
 ## Package Structure
 # Ignore this file
@@ -48,15 +49,15 @@ badgecreatr::badgeplacer(status = "active")
 
 ## Add Data
 # Create the /data-raw folder and add to .Rbuildignore
-devtools::use_data_raw()
+usethis::use_data_raw()
 
 # Use the `Regional_Curve_Database.Rmd` file to process the data
 
 # Add regional_curve to data
-devtools::use_data(regional_curve, overwrite = TRUE)
+usethis::use_data(regional_curve, overwrite = TRUE)
 
 # Add regional_curve_graphs to R/sysdata.rda
-devtools::use_data(regional_curve_graphs, internal = TRUE, overwrite = TRUE)
+usethis::use_data(regional_curve_graphs, internal = TRUE, overwrite = TRUE)
 
 
 ## Organize

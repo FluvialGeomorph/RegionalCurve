@@ -19,5 +19,5 @@ Suggests: testthat,
     dplyr,
     kableExtra,
     tidyr
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 VignetteBuilder: knitr
