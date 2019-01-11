@@ -162,3 +162,21 @@ Lower Southern Driftless,,discharge,150.3,0.595,0.93,13,0.7-250,,,Haring (2018)
 Lower Southern Driftless,,width,32.4,0.231,0.86,13,0.7-250,,,Haring (2018)
 Lower Southern Driftless,,depth,1.7,0.241,0.89,13,0.7-250,,,Haring (2018)
 Lower Southern Driftless,,area,54.6,0.475,0.97,13,0.7-250,,,Haring (2018)
+IL River LTE 300,IL,discharge,58.6,0.714,0.74,14,5-300,,,Haring (2018)
+IL River LTE 300,IL,width,12.6,0.418,0.72,14,5-300,,,Haring (2018)
+IL River LTE 300,IL,depth,2,0.192,0.3,14,5-300,,,Haring (2018)
+IL River LTE 300,IL,area,24.9,0.608,0.67,14,5-300,,,Haring (2018)
+IL River LTE 120,IL,discharge,93.6,0.564,0.62,11,5-120,,,Haring (2018)
+IL River LTE 120,IL,width,13.3,0.402,0.61,11,5-120,,,Haring (2018)
+IL River LTE 120,IL,depth,2.3,0.137,0.14,11,5-120,,,Haring (2018)
+IL River LTE 120,IL,area,31.4,0.535,0.52,11,5-120,,,Haring (2018)
+IL River Panther Creek,IL,discharge,71.1,0.557,0.99,3,6.3-94,,,Haring (2018)
+IL River Panther Creek,IL,width,16.2,0.282,0.79,3,6.3-94,,,Haring (2018)
+IL River Panther Creek,IL,depth,2.9,0.091,0.69,3,6.3-94,,,Haring (2018)
+IL River Panther Creek,IL,area,47.1,0.368,0.76,3,6.3-94,,,Haring (2018)
+Minnesota Eastern,MN,width,6.6316,0.4534,0.86,26,0.6-1100,,,MN DNR
+Minnesota Eastern,MN,depth,0.8032,0.2514,0.74,26,0.6-1100,,,MN DNR
+Minnesota Eastern,MN,area,5.3096,0.7054,0.94,26,0.6-1100,,,MN DNR
+Minnesota Western,MN,width,5.7926,0.3867,0.8,43,7.5-13500,,,MN DNR
+Minnesota Western,MN,depth,0.819,0.2235,0.5,43,7.5-13500,,,MN DNR
+Minnesota Western,MN,area,4.7456,0.6102,0.87,43,7.5-13500,,,MN DNR

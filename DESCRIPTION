@@ -1,7 +1,7 @@
 Package: RegionalCurve
 Type: Package
 Title: A Collection of Hydraulic Regional Curve Relationships
-Version: 0.1.0
+Version: 0.1.1
 Author: Michael Dougherty
 Maintainer: Michael Dougherty <Michael.P.Dougherty@usace.army.mil>
 Description: This package contains data from a broad range of studies that 
