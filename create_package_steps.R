@@ -64,6 +64,10 @@ usethis::use_data(regional_curve_graphs, internal = TRUE, overwrite = TRUE)
 # Update the package documentation
 devtools::document()
 
+# Update README.Rmd
+# after making changes to README.RMD
+#   * knit the README.Rmd to produce the .md file
+#   * delete the YAML header from the README.md file
 
 ## Teach
 # Create the vignette infrastructure
