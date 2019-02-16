@@ -42,6 +42,10 @@ Funding for development and maintenance of `RegionalCurve` was provided by the
 US Army Corps of Engineers (USACE) [Ecosystem Management and Restoration 
 Research Program (EMRRP)](https://emrrp.el.erdc.dren.mil). <img src="man/figures/EMRRP_logo_300.png" align="right" />
 
+## Authors
+* Michael Dougherty, Geographer, U.S. Army Corps of Engineers
+* Christopher Haring, Fluvial Geomorphologist/Research Physical Scientist, U.S. Army Corps of Engineers
+
 ## Install
 To install the `RegionalCurve` package, install from GitHub using the 
 `devtools` package:
