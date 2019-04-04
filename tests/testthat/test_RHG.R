@@ -75,3 +75,14 @@ test_that("dimensionType = 'discharge'", {
   expect_equal(RHG(region = "MA", drainageArea = 300, dimensionType = "discharge"),
                3552.27, tolerance = 1e-4)
 })
+
+test_that("missing dimensionType returns NA", {
+  expect_equal(is.na(RHG(region = "Eastern Highlands", 300, "depth")),
+               TRUE)
+  expect_equal(is.na(RHG(region = "Eastern Highlands", 300, "area")),
+               TRUE)
+  expect_equal(is.na(RHG(region = "Eastern Highlands", 300, "discharge")),
+               TRUE)
+  expect_equal(is.na(RHG(region = "Eastern Highlands", 300, "width")),
+               FALSE)
+})
