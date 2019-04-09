@@ -4,7 +4,8 @@
 \alias{RHG}
 \title{Computes hydraulic geometry dimensions}
 \usage{
-RHG(region, drainageArea, dimensionType)
+RHG(region, drainageArea, dimensionType = c("area", "depth", "width",
+  "discharge"))
 }
 \arguments{
 \item{region}{character; The region that a dimension will be

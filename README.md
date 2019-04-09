@@ -9,7 +9,7 @@ An R Package of Hydraulic Regional Curve Relationships <img src="man/figures/cas
 [![Experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle)
 [![Project Status: Active The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![packageversion](https://img.shields.io/badge/Package%20version-0.1.1-orange.svg?style=flat-square)](commits/master)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--02--16-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2019--04--09-yellowgreen.svg)](/commits/master)
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
 [![Travis-CI Build Status](https://travis-ci.org/mpdougherty/RegionalCurve.svg?branch=master)](https://travis-ci.org/mpdougherty/RegionalCurve)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/mpdougherty/regionalcurve?branch=master&svg=true)](https://ci.appveyor.com/project/mpdougherty/regionalcurve) [![codecov](https://codecov.io/github/mpdougherty/regionalcurve/branch/master/graphs/badge.svg)](https://codecov.io/github/mpdougherty/regionalcurve) 
@@ -110,18 +110,22 @@ levels(regional_curve$region_name)
 #> [43] "PA Non-Carbonate Areas"                                                                 
 #> [44] "PA Piedmont 1"                                                                          
 #> [45] "PA Piedmont 2"                                                                          
-#> [46] "San Francisco Bay"                                                                      
-#> [47] "Southern Appalachians"                                                                  
-#> [48] "Southern Driftless"                                                                     
-#> [49] "Upper Green River"                                                                      
-#> [50] "Upper Salmon River"                                                                     
-#> [51] "VA Piedmont"                                                                            
-#> [52] "VA, MD Coastal Plain"                                                                   
-#> [53] "VA, MD, WV Valley and Ridge"                                                            
-#> [54] "VT"                                                                                     
-#> [55] "WV Appalachian Plateau"                                                                 
-#> [56] "WV Eastern Valley and Ridge"                                                            
-#> [57] "WV Western Appalachian Plateau"
+#> [46] "Pacific Maritime Mountain"                                                              
+#> [47] "Pacific Northwest"                                                                      
+#> [48] "San Francisco Bay"                                                                      
+#> [49] "Southern Appalachians"                                                                  
+#> [50] "Southern Driftless"                                                                     
+#> [51] "Upper Green River"                                                                      
+#> [52] "Upper Salmon River"                                                                     
+#> [53] "VA Piedmont"                                                                            
+#> [54] "VA, MD Coastal Plain"                                                                   
+#> [55] "VA, MD, WV Valley and Ridge"                                                            
+#> [56] "VT"                                                                                     
+#> [57] "West Interior Basin and Range"                                                          
+#> [58] "Western Cordillera"                                                                     
+#> [59] "WV Appalachian Plateau"                                                                 
+#> [60] "WV Eastern Valley and Ridge"                                                            
+#> [61] "WV Western Appalachian Plateau"
 ```
 
 This list of regions can be used to determine which regions are contained in the database and the input `region` string value to use for the `RHG` function. 
@@ -195,7 +199,7 @@ The table below lists the regional hydraulic dimension relationship studies incl
   </tr>
   <tr>
    <td style="text-align:left;"> IL River LTE 120 </td>
-   <td style="text-align:left;"> Haring (2018) </td>
+   <td style="text-align:left;"> Haring (2019) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
@@ -203,7 +207,7 @@ The table below lists the regional hydraulic dimension relationship studies incl
   </tr>
   <tr>
    <td style="text-align:left;"> IL River LTE 300 </td>
-   <td style="text-align:left;"> Haring (2018) </td>
+   <td style="text-align:left;"> Haring (2019) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
@@ -211,7 +215,7 @@ The table below lists the regional hydraulic dimension relationship studies incl
   </tr>
   <tr>
    <td style="text-align:left;"> IL River Panther Creek </td>
-   <td style="text-align:left;"> Haring (2018) </td>
+   <td style="text-align:left;"> Haring (2019) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
@@ -219,7 +223,7 @@ The table below lists the regional hydraulic dimension relationship studies incl
   </tr>
   <tr>
    <td style="text-align:left;"> Illinois River </td>
-   <td style="text-align:left;"> Haring (2018) </td>
+   <td style="text-align:left;"> Haring (2019) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
@@ -251,7 +255,7 @@ The table below lists the regional hydraulic dimension relationship studies incl
   </tr>
   <tr>
    <td style="text-align:left;"> Lower Southern Driftless </td>
-   <td style="text-align:left;"> Haring (2018) </td>
+   <td style="text-align:left;"> Haring (2019) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
@@ -514,6 +518,22 @@ The table below lists the regional hydraulic dimension relationship studies incl
    <td style="text-align:left;"> TRUE </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> Pacific Maritime Mountain </td>
+   <td style="text-align:left;"> Castro &amp; Jackson (2001) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pacific Northwest </td>
+   <td style="text-align:left;"> Castro &amp; Jackson (2001) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> San Francisco Bay </td>
    <td style="text-align:left;"> Dunne &amp; Leopold (1978) </td>
    <td style="text-align:left;"> TRUE </td>
@@ -531,7 +551,7 @@ The table below lists the regional hydraulic dimension relationship studies incl
   </tr>
   <tr>
    <td style="text-align:left;"> Southern Driftless </td>
-   <td style="text-align:left;"> Haring (2018) </td>
+   <td style="text-align:left;"> Haring (2019) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
@@ -580,6 +600,22 @@ The table below lists the regional hydraulic dimension relationship studies incl
   <tr>
    <td style="text-align:left;"> VT </td>
    <td style="text-align:left;"> Jaquith &amp; Kline (2001) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> West Interior Basin and Range </td>
+   <td style="text-align:left;"> Castro &amp; Jackson (2001) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Western Cordillera </td>
+   <td style="text-align:left;"> Castro &amp; Jackson (2001) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
