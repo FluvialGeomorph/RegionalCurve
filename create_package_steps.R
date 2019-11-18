@@ -68,6 +68,7 @@ devtools::document()
 # after making changes to README.RMD
 #   * knit the README.Rmd to produce the .md file
 #   * delete the YAML header from the README.md file
+#   * delete the README.html file
 
 ## Teach
 # Create the vignette infrastructure
