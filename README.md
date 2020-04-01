@@ -1,5 +1,9 @@
+
 <!-- rmarkdown v1 -->
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+
+
 
 # RegionalCurve
 An R Package of Hydraulic Regional Curve Relationships <img src="man/figures/castle.png" align="right" />
@@ -9,7 +13,7 @@ An R Package of Hydraulic Regional Curve Relationships <img src="man/figures/cas
 [![Experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle)
 [![Project Status: Active The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![packageversion](https://img.shields.io/badge/Package%20version-0.1.1-orange.svg?style=flat-square)](commits/master)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2019--11--18-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2020--04--01-yellowgreen.svg)](/commits/master)
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
 [![Travis-CI Build Status](https://travis-ci.org/mpdougherty/RegionalCurve.svg?branch=master)](https://travis-ci.org/mpdougherty/RegionalCurve)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/mpdougherty/regionalcurve?branch=master&svg=true)](https://ci.appveyor.com/project/mpdougherty/regionalcurve) [![codecov](https://codecov.io/github/mpdougherty/regionalcurve/branch/master/graphs/badge.svg)](https://codecov.io/github/mpdougherty/regionalcurve) 
@@ -65,69 +69,78 @@ To determine which regions are available, the `regional_curve` data frame can be
 ```r
 # Determine the available regions
 levels(regional_curve$region_name)
-#>  [1] "Central and Southern AZ"                                                                
-#>  [2] "Eastern - Appalachian Plateau, New England, Valley and Ridge"                           
-#>  [3] "Eastern - Coastal Plain"                                                                
-#>  [4] "Eastern - Piedmont"                                                                     
-#>  [5] "Eastern AZ/NM"                                                                          
-#>  [6] "Eastern Highlands"                                                                      
-#>  [7] "Eastern United States"                                                                  
-#>  [8] "IL River LTE 120"                                                                       
-#>  [9] "IL River LTE 300"                                                                       
-#> [10] "IL River Panther Creek"                                                                 
-#> [11] "Illinois River"                                                                         
-#> [12] "IN Central Till Plain"                                                                  
-#> [13] "IN Northern Moraine and Lake"                                                           
-#> [14] "IN Southern Hills and Lowlands"                                                         
-#> [15] "Lower Southern Driftless"                                                               
-#> [16] "MA"                                                                                     
-#> [17] "MD Allegheny Plateau/Valley and Ridge"                                                  
-#> [18] "MD Eastern Coastal Plain"                                                               
-#> [19] "MD Piedmont"                                                                            
-#> [20] "MD Western Coastal Plain"                                                               
-#> [21] "ME Coastal and Central"                                                                 
-#> [22] "MI Southern Lower Ecoregion"                                                            
-#> [23] "Mid-Atlantic"                                                                           
-#> [24] "Minnesota Eastern"                                                                      
-#> [25] "Minnesota Western"                                                                      
-#> [26] "NC Coastal Plain"                                                                       
-#> [27] "NC Mountains"                                                                           
-#> [28] "NC Piedmont Rural"                                                                      
-#> [29] "NC Piedmont Urban"                                                                      
-#> [30] "New England"                                                                            
-#> [31] "NH"                                                                                     
-#> [32] "Northeast - Appalachian Plateau, Coastal Plain, New England, Piedmont, Valley and Ridge"
-#> [33] "Northeast - Appalachian Plateau, New England, Piedmont, Valley and Ridge"               
-#> [34] "Northern Appalachians"                                                                  
-#> [35] "NY Hydrologic Region 1/2"                                                               
-#> [36] "NY Hydrologic Region 3"                                                                 
-#> [37] "NY Hydrologic Region 4/4a"                                                              
-#> [38] "NY Hydrologic Region 5"                                                                 
-#> [39] "NY Hydrologic Region 6"                                                                 
-#> [40] "NY Hydrologic Region 7"                                                                 
-#> [41] "OH Region A"                                                                            
-#> [42] "OH Region B"                                                                            
-#> [43] "ON Southern"                                                                            
-#> [44] "PA Carbonate Areas"                                                                     
-#> [45] "PA Non-Carbonate Areas"                                                                 
-#> [46] "PA Piedmont 1"                                                                          
-#> [47] "PA Piedmont 2"                                                                          
-#> [48] "Pacific Maritime Mountain"                                                              
-#> [49] "Pacific Northwest"                                                                      
-#> [50] "San Francisco Bay"                                                                      
-#> [51] "Southern Appalachians"                                                                  
-#> [52] "Southern Driftless"                                                                     
-#> [53] "Upper Green River"                                                                      
-#> [54] "Upper Salmon River"                                                                     
-#> [55] "VA Piedmont"                                                                            
-#> [56] "VA, MD Coastal Plain"                                                                   
-#> [57] "VA, MD, WV Valley and Ridge"                                                            
-#> [58] "VT"                                                                                     
-#> [59] "West Interior Basin and Range"                                                          
-#> [60] "Western Cordillera"                                                                     
-#> [61] "WV Appalachian Plateau"                                                                 
-#> [62] "WV Eastern Valley and Ridge"                                                            
-#> [63] "WV Western Appalachian Plateau"
+#>  [1] "Altlantic Plain"                                                                        
+#>  [2] "Appalachain Highlands"                                                                  
+#>  [3] "Central and Southern AZ"                                                                
+#>  [4] "Eastern - Appalachian Plateau, New England, Valley and Ridge"                           
+#>  [5] "Eastern - Coastal Plain"                                                                
+#>  [6] "Eastern - Piedmont"                                                                     
+#>  [7] "Eastern AZ/NM"                                                                          
+#>  [8] "Eastern Highlands"                                                                      
+#>  [9] "Eastern United States"                                                                  
+#> [10] "IL River LTE 120"                                                                       
+#> [11] "IL River LTE 300"                                                                       
+#> [12] "IL River Panther Creek"                                                                 
+#> [13] "Illinois River"                                                                         
+#> [14] "IN Central Till Plain"                                                                  
+#> [15] "IN Northern Moraine and Lake"                                                           
+#> [16] "IN Southern Hills and Lowlands"                                                         
+#> [17] "Interior Highlands"                                                                     
+#> [18] "Interior Plains"                                                                        
+#> [19] "Intermontane Plateau"                                                                   
+#> [20] "Laurentian Upland"                                                                      
+#> [21] "Lower Southern Driftless"                                                               
+#> [22] "MA"                                                                                     
+#> [23] "MD Allegheny Plateau/Valley and Ridge"                                                  
+#> [24] "MD Eastern Coastal Plain"                                                               
+#> [25] "MD Piedmont"                                                                            
+#> [26] "MD Western Coastal Plain"                                                               
+#> [27] "ME Coastal and Central"                                                                 
+#> [28] "MI Southern Lower Ecoregion"                                                            
+#> [29] "Mid-Atlantic"                                                                           
+#> [30] "Minnesota Eastern"                                                                      
+#> [31] "Minnesota Western"                                                                      
+#> [32] "NC Coastal Plain"                                                                       
+#> [33] "NC Mountains"                                                                           
+#> [34] "NC Piedmont Rural"                                                                      
+#> [35] "NC Piedmont Urban"                                                                      
+#> [36] "New England"                                                                            
+#> [37] "NH"                                                                                     
+#> [38] "Northeast - Appalachian Plateau, Coastal Plain, New England, Piedmont, Valley and Ridge"
+#> [39] "Northeast - Appalachian Plateau, New England, Piedmont, Valley and Ridge"               
+#> [40] "Northern Appalachians"                                                                  
+#> [41] "NY Hydrologic Region 1/2"                                                               
+#> [42] "NY Hydrologic Region 3"                                                                 
+#> [43] "NY Hydrologic Region 4/4a"                                                              
+#> [44] "NY Hydrologic Region 5"                                                                 
+#> [45] "NY Hydrologic Region 6"                                                                 
+#> [46] "NY Hydrologic Region 7"                                                                 
+#> [47] "OH Region A"                                                                            
+#> [48] "OH Region B"                                                                            
+#> [49] "ON Southern"                                                                            
+#> [50] "PA Carbonate Areas"                                                                     
+#> [51] "PA Non-Carbonate Areas"                                                                 
+#> [52] "PA Piedmont 1"                                                                          
+#> [53] "PA Piedmont 2"                                                                          
+#> [54] "Pacific Maritime Mountain"                                                              
+#> [55] "Pacific Mountain System"                                                                
+#> [56] "Pacific Northwest"                                                                      
+#> [57] "Rocky Mountain System"                                                                  
+#> [58] "San Francisco Bay"                                                                      
+#> [59] "Southern Appalachians"                                                                  
+#> [60] "Southern Driftless"                                                                     
+#> [61] "Upper Green River"                                                                      
+#> [62] "Upper Salmon River"                                                                     
+#> [63] "USA"                                                                                    
+#> [64] "VA Piedmont"                                                                            
+#> [65] "VA, MD Coastal Plain"                                                                   
+#> [66] "VA, MD, WV Valley and Ridge"                                                            
+#> [67] "VT"                                                                                     
+#> [68] "West Interior Basin and Range"                                                          
+#> [69] "Western Cordillera"                                                                     
+#> [70] "WV Appalachian Plateau"                                                                 
+#> [71] "WV Eastern Valley and Ridge"                                                            
+#> [72] "WV Western Appalachian Plateau"
 ```
 
 This list of regions can be used to determine which regions are contained in the database and the input `region` string value to use for the `RHG` function. 
@@ -159,6 +172,22 @@ The table below lists the regional hydraulic dimension relationship studies incl
   </tr>
  </thead>
 <tbody>
+  <tr>
+   <td style="text-align:left;"> Altlantic Plain </td>
+   <td style="text-align:left;"> Bieger et al (2015) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Appalachain Highlands </td>
+   <td style="text-align:left;"> Bieger et al (2015) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
   <tr>
    <td style="text-align:left;"> Central and Southern AZ </td>
    <td style="text-align:left;"> Moody et al (2003) </td>
@@ -266,6 +295,38 @@ The table below lists the regional hydraulic dimension relationship studies incl
   <tr>
    <td style="text-align:left;"> IN Southern Hills and Lowlands </td>
    <td style="text-align:left;"> Robinson (2013) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Interior Highlands </td>
+   <td style="text-align:left;"> Bieger et al (2015) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Interior Plains </td>
+   <td style="text-align:left;"> Bieger et al (2015) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Intermontane Plateau </td>
+   <td style="text-align:left;"> Bieger et al (2015) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Laurentian Upland </td>
+   <td style="text-align:left;"> Bieger et al (2015) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
@@ -544,12 +605,28 @@ The table below lists the regional hydraulic dimension relationship studies incl
    <td style="text-align:left;"> TRUE </td>
   </tr>
   <tr>
+   <td style="text-align:left;"> Pacific Mountain System </td>
+   <td style="text-align:left;"> Bieger et al (2015) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
    <td style="text-align:left;"> Pacific Northwest </td>
    <td style="text-align:left;"> Castro &amp; Jackson (2001) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Rocky Mountain System </td>
+   <td style="text-align:left;"> Bieger et al (2015) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
   </tr>
   <tr>
    <td style="text-align:left;"> San Francisco Bay </td>
@@ -586,6 +663,14 @@ The table below lists the regional hydraulic dimension relationship studies incl
   <tr>
    <td style="text-align:left;"> Upper Salmon River </td>
    <td style="text-align:left;"> Dunne &amp; Leopold (1978) </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> USA </td>
+   <td style="text-align:left;"> Bieger et al (2015) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
