@@ -52,7 +52,7 @@ To install the `RegionalCurve` package, install from GitHub using the
 
 ```r
 library(devtools)
-install_github(repo = "mpdougherty/RegionalCurve", build_vignettes = TRUE)
+install_github(repo = "FluvialGeomorph/RegionalCurve", build_vignettes = TRUE)
 ```
 ## Vignettes
 View the vignettes to get started using the package.
