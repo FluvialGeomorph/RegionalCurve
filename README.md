@@ -15,7 +15,7 @@ Package Status
 and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![packageversion](https://img.shields.io/badge/Package%20version-0.1.4-orange.svg?style=flat-square)](commits/master)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2020--09--19-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2020--09--20-yellowgreen.svg)](/commits/master)
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
 [![Travis-CI Build
 Status](https://travis-ci.org/mpdougherty/RegionalCurve.svg?branch=master)](https://travis-ci.org/mpdougherty/RegionalCurve)
@@ -32,9 +32,11 @@ numbers since the first development of the approach by Dunne and Leopold
 authors are not aware of a comprehensive compilation of regional
 hydraulic dimension relationship studies into a single database that
 exists as open source. The `RegionalCurve` package seeks to fill that
-gap by: \* Compiling regional hydraulic relationships into a single
-database. \* Providing assessor functions to streamline application of
-these relationships in other studies.
+gap by:
+
+-   Compiling regional hydraulic relationships into a single database.
+-   Providing assessor functions to streamline application of these
+    relationships in other studies.
 
 <img src="man/figures/HDQLO-03_h120.jpg" width=125 align="right" />
 
@@ -69,10 +71,7 @@ To install the `RegionalCurve` package, install from GitHub using the
 `devtools` package:
 
     library(devtools)
-    #> Loading required package: usethis
     install_github(repo = "FluvialGeomorph/RegionalCurve", build_vignettes = TRUE)
-    #> Skipping install of 'RegionalCurve' from a github remote, the SHA1 (430e03b1) has not changed since last install.
-    #>   Use `force = TRUE` to force installation
 
 Vignettes
 ---------
@@ -81,11 +80,9 @@ View the vignettes to get started using the package.
 
     # View the vignettes in a web browser
     browseVignettes("RegionalCurve")
-    #> No vignettes found by browseVignettes("RegionalCurve")
 
     # Open a specific vignette in the RStudio help window
     vignette("Get_Regional_Hydraulic_Dimensions")
-    #> Warning: vignette 'Get_Regional_Hydraulic_Dimensions' not found
 
 Calculating Hyrdaulic Dimensions
 --------------------------------
@@ -99,7 +96,6 @@ hydraulic equation coefficients (`regional_curve`).
 
     # Calculate the discharge for a 200 sq mi watershed in Massachusetts.
     RHG(region = "MA", drainageArea = 200,   dimensionType = "width")
-    #> [1] 127.7779
 
 The units of the value returned from the `RHG` function will depend on
 the requested dimension (see the `RHG` function help for details). In
@@ -111,78 +107,6 @@ frame can be queried.
 
     # Determine the available regions
     levels(regional_curve$region_name)
-    #>  [1] "Altlantic Plain"                                                                        
-    #>  [2] "Appalachain Highlands"                                                                  
-    #>  [3] "Central and Southern AZ"                                                                
-    #>  [4] "Eastern - Appalachian Plateau, New England, Valley and Ridge"                           
-    #>  [5] "Eastern - Coastal Plain"                                                                
-    #>  [6] "Eastern - Piedmont"                                                                     
-    #>  [7] "Eastern AZ/NM"                                                                          
-    #>  [8] "Eastern Highlands"                                                                      
-    #>  [9] "Eastern United States"                                                                  
-    #> [10] "IL River LTE 120"                                                                       
-    #> [11] "IL River LTE 300"                                                                       
-    #> [12] "IL River Panther Creek"                                                                 
-    #> [13] "Illinois River"                                                                         
-    #> [14] "IN Central Till Plain"                                                                  
-    #> [15] "IN Northern Moraine and Lake"                                                           
-    #> [16] "IN Southern Hills and Lowlands"                                                         
-    #> [17] "Interior Highlands"                                                                     
-    #> [18] "Interior Plains"                                                                        
-    #> [19] "Intermontane Plateau"                                                                   
-    #> [20] "Laurentian Upland"                                                                      
-    #> [21] "Lower Southern Driftless"                                                               
-    #> [22] "MA"                                                                                     
-    #> [23] "MD Allegheny Plateau/Valley and Ridge"                                                  
-    #> [24] "MD Eastern Coastal Plain"                                                               
-    #> [25] "MD Piedmont"                                                                            
-    #> [26] "MD Western Coastal Plain"                                                               
-    #> [27] "ME Coastal and Central"                                                                 
-    #> [28] "MI Southern Lower Ecoregion"                                                            
-    #> [29] "Mid-Atlantic"                                                                           
-    #> [30] "Minnesota Eastern"                                                                      
-    #> [31] "Minnesota Western"                                                                      
-    #> [32] "NC Coastal Plain"                                                                       
-    #> [33] "NC Mountains"                                                                           
-    #> [34] "NC Piedmont Rural"                                                                      
-    #> [35] "NC Piedmont Urban"                                                                      
-    #> [36] "New England"                                                                            
-    #> [37] "NH"                                                                                     
-    #> [38] "Northeast - Appalachian Plateau, Coastal Plain, New England, Piedmont, Valley and Ridge"
-    #> [39] "Northeast - Appalachian Plateau, New England, Piedmont, Valley and Ridge"               
-    #> [40] "Northern Appalachians"                                                                  
-    #> [41] "NY Hydrologic Region 1/2"                                                               
-    #> [42] "NY Hydrologic Region 3"                                                                 
-    #> [43] "NY Hydrologic Region 4/4a"                                                              
-    #> [44] "NY Hydrologic Region 5"                                                                 
-    #> [45] "NY Hydrologic Region 6"                                                                 
-    #> [46] "NY Hydrologic Region 7"                                                                 
-    #> [47] "OH Region A"                                                                            
-    #> [48] "OH Region B"                                                                            
-    #> [49] "ON Southern"                                                                            
-    #> [50] "PA Carbonate Areas"                                                                     
-    #> [51] "PA Non-Carbonate Areas"                                                                 
-    #> [52] "PA Piedmont 1"                                                                          
-    #> [53] "PA Piedmont 2"                                                                          
-    #> [54] "Pacific Maritime Mountain"                                                              
-    #> [55] "Pacific Mountain System"                                                                
-    #> [56] "Pacific Northwest"                                                                      
-    #> [57] "Rocky Mountain System"                                                                  
-    #> [58] "San Francisco Bay"                                                                      
-    #> [59] "Southern Appalachians"                                                                  
-    #> [60] "Southern Driftless"                                                                     
-    #> [61] "Upper Green River"                                                                      
-    #> [62] "Upper Salmon River"                                                                     
-    #> [63] "USA"                                                                                    
-    #> [64] "VA Piedmont"                                                                            
-    #> [65] "VA, MD Coastal Plain"                                                                   
-    #> [66] "VA, MD, WV Valley and Ridge"                                                            
-    #> [67] "VT"                                                                                     
-    #> [68] "West Interior Basin and Range"                                                          
-    #> [69] "Western Cordillera"                                                                     
-    #> [70] "WV Appalachian Plateau"                                                                 
-    #> [71] "WV Eastern Valley and Ridge"                                                            
-    #> [72] "WV Western Appalachian Plateau"
 
 This list of regions can be used to determine which regions are
 contained in the database and the input `region` string value to use for
@@ -194,8 +118,6 @@ derive relationships for all hydraulic dimensions.
 
     # Determine which dimensions were calculated for the Eastern United States region
     regional_curve[regional_curve$region_name == "Eastern United States", c("dimension")]
-    #> [1] area  width depth
-    #> Levels: area depth discharge width
 
 As you can see, only area, width, and depth are available. Discharge was
 not derived by this study.
