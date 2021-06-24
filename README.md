@@ -56,9 +56,10 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 
 ## Authors
 
-  - Michael Dougherty, Geographer, U.S. Army Corps of Engineers
   - Christopher Haring, Fluvial Geomorphologist/Research Physical
     Scientist, U.S. Army Corps of Engineers
+  - Michael Dougherty, Geographer, U.S. Army Corps of Engineers
+
 
 ## Install
 
