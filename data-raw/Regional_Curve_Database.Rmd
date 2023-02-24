@@ -25,7 +25,7 @@ Newer regional hydraulic geometry studies provide the data used and the paramete
 To allow use of the older data along with newer data, the strategy used in this study is to calculate the power function coefficients from the older studies and add these records to those of the newer studies.
 
 # Interpolating power function coefficients from a Log-Log Plot
-Regional curves are typically displayed on log-log plots. The method for interpolating a value from a log-log plot is described [here](https://en.wikipedia.org/wiki/Log%E2%80%93log_plot). This method is required to extract the formula for calculating the y-axis value on these graphs (i.e., cross-sectional area, width, mean depth) from the x-axis value (i.e., drainage area). Monomial relationships of the form $y=ax^m$, known as power functions, appear as straight lines in a log–log graph, with the exponent ($m$) and constant ($a$) term corresponding to slope and intercept of the line ($y = mx + b$).
+Regional curves are typically displayed on log-log plots. The method for interpolating a value from a log-log plot is described [here](https://en.wikipedia.org/wiki/Log%E2%80%93log_plot). This method is required to extract the formula for calculating the y-axis value on these graphs (i.e., cross-sectional area, width, mean depth) from the x-axis value (i.e., drainage area). Monomial relationships of the form $y=ax^m$, known as power functions ($a$ intercept, $m$ slope), appear as straight lines in a log–log graph, with the exponent ($m$) and constant ($a$) term corresponding to slope and intercept of the line ($y = mx + b$).
 
 The slope $m$ is calculated using the following formula:
 

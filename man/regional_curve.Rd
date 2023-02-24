@@ -4,7 +4,8 @@
 \name{regional_curve}
 \alias{regional_curve}
 \title{Regional hydraulic geometry curve data}
-\format{A data frame with 163 observations and 11 variables:
+\format{
+A data frame with 163 observations and 11 variables:
 \describe{
   \item{region_name}{the name of the region}
   \item{state}{the name of the US state or Canadian province}
@@ -17,7 +18,8 @@
   \item{recurrence_range}{the flood recurrence interval (years)}
   \item{median_recurrence}{the median flood recurrence (years)}
   \item{reference}{the citation of the study}
-}}
+}
+}
 \usage{
 regional_curve
 }

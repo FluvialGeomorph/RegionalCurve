@@ -54,7 +54,7 @@ usethis::use_data_raw()
 # Use the `Regional_Curve_Database.Rmd` file to process the data
 
 # Add regional_curve to data
-usethis::use_data(regional_curve, overwrite = TRUE)
+usethis::use_data(regional_curve, internal = FALSE, overwrite = TRUE)
 
 # Add regional_curve_graphs to R/sysdata.rda
 usethis::use_data(regional_curve_graphs, internal = TRUE, overwrite = TRUE)

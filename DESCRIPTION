@@ -1,7 +1,7 @@
 Package: RegionalCurve
 Type: Package
 Title: A Collection of Hydraulic Regional Curve Relationships
-Version: 0.1.4
+Version: 0.1.5
 Author: c(
     person("Michael", "Dougherty", 
            email = "Michael.P.Dougherty@usace.army.mil", 
@@ -16,7 +16,7 @@ Description: This package contains data from a broad range of studies that
     compiled into a single table to provide a comprehensive one-stop source. 
     Accessor functions have also been included to streamline application of 
     dimensions in other analyses. 
-License: CC0
+License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 2.10)
@@ -26,5 +26,5 @@ Suggests: testthat,
     dplyr,
     kableExtra,
     tidyr
-RoxygenNote: 7.0.2
+RoxygenNote: 7.2.3
 VignetteBuilder: knitr

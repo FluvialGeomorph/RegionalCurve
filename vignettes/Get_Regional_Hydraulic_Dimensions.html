@@ -8,53 +8,334 @@
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2019-12-17" />
+<meta name="date" content="2023-02-24" />
 
 <title>Get Regional Hydraulic Dimensions</title>
 
-<script src="data:application/x-javascript;base64,JChkb2N1bWVudCkucmVhZHkoZnVuY3Rpb24oKXsKICAgIGlmICh0eXBlb2YgJCgnW2RhdGEtdG9nZ2xlPSJ0b29sdGlwIl0nKS50b29sdGlwID09PSAnZnVuY3Rpb24nKSB7CiAgICAgICAgJCgnW2RhdGEtdG9nZ2xlPSJ0b29sdGlwIl0nKS50b29sdGlwKCk7CiAgICB9CiAgICBpZiAoJCgnW2RhdGEtdG9nZ2xlPSJwb3BvdmVyIl0nKS5wb3BvdmVyID09PSAnZnVuY3Rpb24nKSB7CiAgICAgICAgJCgnW2RhdGEtdG9nZ2xlPSJwb3BvdmVyIl0nKS5wb3BvdmVyKCk7CiAgICB9Cn0pOwo="></script>
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
-<style type="text/css">code{white-space: pre;}</style>
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 
 </style>
 <script>
@@ -64,13 +345,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -81,7 +369,188 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -94,21 +563,47 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <h1 class="title toc-ignore">Get Regional Hydraulic Dimensions</h1>
-<h4 class="date">2019-12-17</h4>
+<h4 class="date">2023-02-24</h4>
 
 
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Regional hydraulic dimension relationships have been produced in great numbers since the first development of the approach by Dunne and Leopold (1978). Although these regional relatiionships are in wide use, the author is not aware of a comprehensive compilation of regional hydraulic dimension relationship studies into a single database that exists as open source. The <code>RegionalCurve</code> package seeks to fill that gap by: * Compiling regional hydraulic relationships into a single database. * Providing assessor functions to streamline application of these relationships in other studies.</p>
+<p>Regional hydraulic dimension relationships have been produced in
+great numbers since the first development of the approach by Dunne and
+Leopold (1978). Although these regional relatiionships are in wide use,
+the author is not aware of a comprehensive compilation of regional
+hydraulic dimension relationship studies into a single database that
+exists as open source. The <code>RegionalCurve</code> package seeks to
+fill that gap by: * Compiling regional hydraulic relationships into a
+single database. * Providing assessor functions to streamline
+application of these relationships in other studies.</p>
 </div>
 <div id="the-power-function" class="section level1">
 <h1>The Power Function</h1>
-<p>Early in the development of these relationships it was discovered that dimensions such as bankfull width, mean bankfull depth, bankfull cross sectional area, and discharge ploted against drainage area were log-linear. Therefore monomial relationships of the form <span class="math inline">\(y=ax^m\)</span>, known as power functions (with the exponent (<span class="math inline">\(m\)</span>) and constant (<span class="math inline">\(a\)</span>) term corresponding to the slope and intercept of the line (<span class="math inline">\(y = mx + b\)</span>), which appear as straight lines in a log–log graph, were adopted to simplify the representation of these relationships. This standardization of the functional form of these relationships allowed the approach to become widely adopted and conducive to compliation into a single database. Recording only two coefficients (i.e., slope and intercept) of the power function allows the relationship to be used to estimate hydraulic dimensions for any arbitrary drainage area (within the range of the original study).</p>
+<p>Early in the development of these relationships it was discovered
+that dimensions such as bankfull width, mean bankfull depth, bankfull
+cross sectional area, and discharge ploted against drainage area were
+log-linear. Therefore monomial relationships of the form <span class="math inline">\(y=ax^m\)</span>, known as power functions (with
+the exponent (<span class="math inline">\(m\)</span>) and constant
+(<span class="math inline">\(a\)</span>) term corresponding to the slope
+and intercept of the line (<span class="math inline">\(y = mx +
+b\)</span>), which appear as straight lines in a log–log graph, were
+adopted to simplify the representation of these relationships. This
+standardization of the functional form of these relationships allowed
+the approach to become widely adopted and conducive to compliation into
+a single database. Recording only two coefficients (i.e., slope and
+intercept) of the power function allows the relationship to be used to
+estimate hydraulic dimensions for any arbitrary drainage area (within
+the range of the original study).</p>
 </div>
 <div id="regional-analyses-contained-in-this-database" class="section level1">
 <h1>Regional Analyses Contained in this Database</h1>
-<p>Figure 1 lists the regional hydraulic dimension relationship studies included in this package. It lists the dimensions calculated for each regional analysis.</p>
+<p>Figure 1 lists the regional hydraulic dimension relationship studies
+included in this package. It lists the dimensions calculated for each
+regional analysis.</p>
+<pre><code>#&gt; `summarise()` has grouped output by &#39;region_name&#39;. You can override using the
+#&gt; `.groups` argument.</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -133,6 +628,46 @@ Discharge
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+Altlantic Plain
+</td>
+<td style="text-align:left;">
+Bieger et al (2015)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Appalachain Highlands
+</td>
+<td style="text-align:left;">
+Bieger et al (2015)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Central and Southern AZ
@@ -415,6 +950,106 @@ NA
 </tr>
 <tr>
 <td style="text-align:left;">
+Interior Highlands
+</td>
+<td style="text-align:left;">
+Bieger et al (2015)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Interior Plains
+</td>
+<td style="text-align:left;">
+Bieger et al (2015)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Intermontane Plateau
+</td>
+<td style="text-align:left;">
+Bieger et al (2015)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KY Bluegrass
+</td>
+<td style="text-align:left;">
+Parola et al (2007)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Laurentian Upland
+</td>
+<td style="text-align:left;">
+Bieger et al (2015)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 Lower Southern Driftless
 </td>
 <td style="text-align:left;">
@@ -658,7 +1293,7 @@ TRUE
 NC Mountains
 </td>
 <td style="text-align:left;">
-Harman et al. (1999)
+Harman et al. (1999)
 </td>
 <td style="text-align:left;">
 TRUE
@@ -678,7 +1313,7 @@ TRUE
 NC Piedmont Rural
 </td>
 <td style="text-align:left;">
-Harman et al. (1999)
+Harman et al. (1999)
 </td>
 <td style="text-align:left;">
 TRUE
@@ -698,7 +1333,7 @@ TRUE
 NC Piedmont Urban
 </td>
 <td style="text-align:left;">
-Doll et al. (2002)
+Doll et al. (2002)
 </td>
 <td style="text-align:left;">
 TRUE
@@ -755,7 +1390,8 @@ TRUE
 </tr>
 <tr>
 <td style="text-align:left;">
-Northeast - Appalachian Plateau, Coastal Plain, New England, Piedmont, Valley and Ridge
+Northeast - Appalachian Plateau, Coastal Plain, New England, Piedmont,
+Valley and Ridge
 </td>
 <td style="text-align:left;">
 Bent (2006)
@@ -818,7 +1454,7 @@ NA
 NY Hydrologic Region 1/2
 </td>
 <td style="text-align:left;">
-Mulvihill et al. (2007)
+Mulvihill et al. (2007)
 </td>
 <td style="text-align:left;">
 TRUE
@@ -878,7 +1514,7 @@ TRUE
 NY Hydrologic Region 5
 </td>
 <td style="text-align:left;">
-Westergard et al. (2005)
+Westergard et al. (2005)
 </td>
 <td style="text-align:left;">
 TRUE
@@ -898,7 +1534,7 @@ TRUE
 NY Hydrologic Region 6
 </td>
 <td style="text-align:left;">
-Mulvihill et al. (2005)
+Mulvihill et al. (2005)
 </td>
 <td style="text-align:left;">
 TRUE
@@ -918,7 +1554,7 @@ TRUE
 NY Hydrologic Region 7
 </td>
 <td style="text-align:left;">
-Mulvihill et al. (2006)
+Mulvihill et al. (2006)
 </td>
 <td style="text-align:left;">
 TRUE
@@ -1095,6 +1731,26 @@ TRUE
 </tr>
 <tr>
 <td style="text-align:left;">
+Pacific Mountain System
+</td>
+<td style="text-align:left;">
+Bieger et al (2015)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 Pacific Northwest
 </td>
 <td style="text-align:left;">
@@ -1111,6 +1767,26 @@ TRUE
 </td>
 <td style="text-align:left;">
 TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rocky Mountain System
+</td>
+<td style="text-align:left;">
+Bieger et al (2015)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
 </td>
 </tr>
 <tr>
@@ -1199,6 +1875,26 @@ Upper Salmon River
 </td>
 <td style="text-align:left;">
 Dunne &amp; Leopold (1978)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+USA
+</td>
+<td style="text-align:left;">
+Bieger et al (2015)
 </td>
 <td style="text-align:left;">
 TRUE
@@ -1398,84 +2094,109 @@ NA
 </div>
 <div id="calculating-hyrdaulic-dimensions" class="section level1">
 <h1>Calculating Hyrdaulic Dimensions</h1>
-<p>To easily use the data in this database several assessor functions were created to calculate an estimate of a specified hydraulic dimension for any given drainage area. The <code>RHG</code> (Regional Hydraulic Geometry) function computes the hydraulic geometry dimension (cross sectional area, width, depth, discharge) from a built-in data frame of regional hydraulic equation coefficients (<code>regional_curve</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the discharge for a 200 sq mi watershed in Massachusetts.</span>
-<span class="kw">RHG</span>(<span class="dt">region =</span> <span class="st">&quot;MA&quot;</span>, <span class="dt">drainageArea =</span> <span class="dv">200</span>,   <span class="dt">dimensionType =</span> <span class="st">&quot;width&quot;</span>)
-<span class="co">#&gt; [1] 127.7779</span></code></pre></div>
-<p>The units of the value returned from the <code>RHG</code> function will depend on the requested dimension (see the <code>RHG</code> function help for details). In this case, the requested dimension was <code>width</code>, so the units will be in feet.</p>
-<p>To determine which regions are available, the <code>regional_curve</code> data frame can be queried.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Determine the available regions</span>
-<span class="kw">levels</span>(regional_curve<span class="op">$</span>region_name)
-<span class="co">#&gt;  [1] &quot;Central and Southern AZ&quot;                                                                </span>
-<span class="co">#&gt;  [2] &quot;Eastern - Appalachian Plateau, New England, Valley and Ridge&quot;                           </span>
-<span class="co">#&gt;  [3] &quot;Eastern - Coastal Plain&quot;                                                                </span>
-<span class="co">#&gt;  [4] &quot;Eastern - Piedmont&quot;                                                                     </span>
-<span class="co">#&gt;  [5] &quot;Eastern AZ/NM&quot;                                                                          </span>
-<span class="co">#&gt;  [6] &quot;Eastern Highlands&quot;                                                                      </span>
-<span class="co">#&gt;  [7] &quot;Eastern United States&quot;                                                                  </span>
-<span class="co">#&gt;  [8] &quot;IL River LTE 120&quot;                                                                       </span>
-<span class="co">#&gt;  [9] &quot;IL River LTE 300&quot;                                                                       </span>
-<span class="co">#&gt; [10] &quot;IL River Panther Creek&quot;                                                                 </span>
-<span class="co">#&gt; [11] &quot;Illinois River&quot;                                                                         </span>
-<span class="co">#&gt; [12] &quot;IN Central Till Plain&quot;                                                                  </span>
-<span class="co">#&gt; [13] &quot;IN Northern Moraine and Lake&quot;                                                           </span>
-<span class="co">#&gt; [14] &quot;IN Southern Hills and Lowlands&quot;                                                         </span>
-<span class="co">#&gt; [15] &quot;Lower Southern Driftless&quot;                                                               </span>
-<span class="co">#&gt; [16] &quot;MA&quot;                                                                                     </span>
-<span class="co">#&gt; [17] &quot;MD Allegheny Plateau/Valley and Ridge&quot;                                                  </span>
-<span class="co">#&gt; [18] &quot;MD Eastern Coastal Plain&quot;                                                               </span>
-<span class="co">#&gt; [19] &quot;MD Piedmont&quot;                                                                            </span>
-<span class="co">#&gt; [20] &quot;MD Western Coastal Plain&quot;                                                               </span>
-<span class="co">#&gt; [21] &quot;ME Coastal and Central&quot;                                                                 </span>
-<span class="co">#&gt; [22] &quot;MI Southern Lower Ecoregion&quot;                                                            </span>
-<span class="co">#&gt; [23] &quot;Mid-Atlantic&quot;                                                                           </span>
-<span class="co">#&gt; [24] &quot;Minnesota Eastern&quot;                                                                      </span>
-<span class="co">#&gt; [25] &quot;Minnesota Western&quot;                                                                      </span>
-<span class="co">#&gt; [26] &quot;NC Coastal Plain&quot;                                                                       </span>
-<span class="co">#&gt; [27] &quot;NC Mountains&quot;                                                                           </span>
-<span class="co">#&gt; [28] &quot;NC Piedmont Rural&quot;                                                                      </span>
-<span class="co">#&gt; [29] &quot;NC Piedmont Urban&quot;                                                                      </span>
-<span class="co">#&gt; [30] &quot;New England&quot;                                                                            </span>
-<span class="co">#&gt; [31] &quot;NH&quot;                                                                                     </span>
-<span class="co">#&gt; [32] &quot;Northeast - Appalachian Plateau, Coastal Plain, New England, Piedmont, Valley and Ridge&quot;</span>
-<span class="co">#&gt; [33] &quot;Northeast - Appalachian Plateau, New England, Piedmont, Valley and Ridge&quot;               </span>
-<span class="co">#&gt; [34] &quot;Northern Appalachians&quot;                                                                  </span>
-<span class="co">#&gt; [35] &quot;NY Hydrologic Region 1/2&quot;                                                               </span>
-<span class="co">#&gt; [36] &quot;NY Hydrologic Region 3&quot;                                                                 </span>
-<span class="co">#&gt; [37] &quot;NY Hydrologic Region 4/4a&quot;                                                              </span>
-<span class="co">#&gt; [38] &quot;NY Hydrologic Region 5&quot;                                                                 </span>
-<span class="co">#&gt; [39] &quot;NY Hydrologic Region 6&quot;                                                                 </span>
-<span class="co">#&gt; [40] &quot;NY Hydrologic Region 7&quot;                                                                 </span>
-<span class="co">#&gt; [41] &quot;OH Region A&quot;                                                                            </span>
-<span class="co">#&gt; [42] &quot;OH Region B&quot;                                                                            </span>
-<span class="co">#&gt; [43] &quot;ON Southern&quot;                                                                            </span>
-<span class="co">#&gt; [44] &quot;PA Carbonate Areas&quot;                                                                     </span>
-<span class="co">#&gt; [45] &quot;PA Non-Carbonate Areas&quot;                                                                 </span>
-<span class="co">#&gt; [46] &quot;PA Piedmont 1&quot;                                                                          </span>
-<span class="co">#&gt; [47] &quot;PA Piedmont 2&quot;                                                                          </span>
-<span class="co">#&gt; [48] &quot;Pacific Maritime Mountain&quot;                                                              </span>
-<span class="co">#&gt; [49] &quot;Pacific Northwest&quot;                                                                      </span>
-<span class="co">#&gt; [50] &quot;San Francisco Bay&quot;                                                                      </span>
-<span class="co">#&gt; [51] &quot;Southern Appalachians&quot;                                                                  </span>
-<span class="co">#&gt; [52] &quot;Southern Driftless&quot;                                                                     </span>
-<span class="co">#&gt; [53] &quot;Upper Green River&quot;                                                                      </span>
-<span class="co">#&gt; [54] &quot;Upper Salmon River&quot;                                                                     </span>
-<span class="co">#&gt; [55] &quot;VA Piedmont&quot;                                                                            </span>
-<span class="co">#&gt; [56] &quot;VA, MD Coastal Plain&quot;                                                                   </span>
-<span class="co">#&gt; [57] &quot;VA, MD, WV Valley and Ridge&quot;                                                            </span>
-<span class="co">#&gt; [58] &quot;VT&quot;                                                                                     </span>
-<span class="co">#&gt; [59] &quot;West Interior Basin and Range&quot;                                                          </span>
-<span class="co">#&gt; [60] &quot;Western Cordillera&quot;                                                                     </span>
-<span class="co">#&gt; [61] &quot;WV Appalachian Plateau&quot;                                                                 </span>
-<span class="co">#&gt; [62] &quot;WV Eastern Valley and Ridge&quot;                                                            </span>
-<span class="co">#&gt; [63] &quot;WV Western Appalachian Plateau&quot;</span></code></pre></div>
-<p>This list of regions can be used to determine which regions are contained in the database and the input <code>region</code> string value to use for the <code>RHG</code> function.</p>
-<p>Once you have determined which region to use, you will need to determine which dimensions that study derived a relationship for. Not all studies derive relationships for all hydraulic dimensions.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Determine which dimensions were calculated for the Eastern United States region</span>
-regional_curve[regional_curve<span class="op">$</span>region_name <span class="op">==</span><span class="st"> &quot;Eastern United States&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;dimension&quot;</span>)]
-<span class="co">#&gt; [1] area  width depth</span>
-<span class="co">#&gt; Levels: area depth discharge width</span></code></pre></div>
-<p>As you can see, only area, width, and depth are available. Discharge was not derived by this study.</p>
+<p>To easily use the data in this database several assessor functions
+were created to calculate an estimate of a specified hydraulic dimension
+for any given drainage area. The <code>RHG</code> (Regional Hydraulic
+Geometry) function computes the hydraulic geometry dimension (cross
+sectional area, width, depth, discharge) from a built-in data frame of
+regional hydraulic equation coefficients
+(<code>regional_curve</code>).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the discharge for a 200 sq mi watershed in Massachusetts.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">RHG</span>(<span class="at">region =</span> <span class="st">&quot;MA&quot;</span>, <span class="at">drainageArea =</span> <span class="dv">200</span>,   <span class="at">dimensionType =</span> <span class="st">&quot;width&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 127.7779</span></span></code></pre></div>
+<p>The units of the value returned from the <code>RHG</code> function
+will depend on the requested dimension (see the <code>RHG</code>
+function help for details). In this case, the requested dimension was
+<code>width</code>, so the units will be in feet.</p>
+<p>To determine which regions are available, the
+<code>regional_curve</code> data frame can be queried.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determine the available regions</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(regional_curve<span class="sc">$</span>region_name)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Altlantic Plain&quot;                                                                        </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [2] &quot;Appalachain Highlands&quot;                                                                  </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;Central and Southern AZ&quot;                                                                </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [4] &quot;Eastern - Appalachian Plateau, New England, Valley and Ridge&quot;                           </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;Eastern - Coastal Plain&quot;                                                                </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;Eastern - Piedmont&quot;                                                                     </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;Eastern AZ/NM&quot;                                                                          </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8] &quot;Eastern Highlands&quot;                                                                      </span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;Eastern United States&quot;                                                                  </span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10] &quot;IL River LTE 120&quot;                                                                       </span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;IL River LTE 300&quot;                                                                       </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [12] &quot;IL River Panther Creek&quot;                                                                 </span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Illinois River&quot;                                                                         </span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [14] &quot;IN Central Till Plain&quot;                                                                  </span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [15] &quot;IN Northern Moraine and Lake&quot;                                                           </span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] &quot;IN Southern Hills and Lowlands&quot;                                                         </span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [17] &quot;Interior Highlands&quot;                                                                     </span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [18] &quot;Interior Plains&quot;                                                                        </span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19] &quot;Intermontane Plateau&quot;                                                                   </span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [20] &quot;KY Bluegrass&quot;                                                                           </span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [21] &quot;Laurentian Upland&quot;                                                                      </span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [22] &quot;Lower Southern Driftless&quot;                                                               </span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [23] &quot;MA&quot;                                                                                     </span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [24] &quot;MD Allegheny Plateau/Valley and Ridge&quot;                                                  </span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] &quot;MD Eastern Coastal Plain&quot;                                                               </span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [26] &quot;MD Piedmont&quot;                                                                            </span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [27] &quot;MD Western Coastal Plain&quot;                                                               </span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [28] &quot;ME Coastal and Central&quot;                                                                 </span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [29] &quot;MI Southern Lower Ecoregion&quot;                                                            </span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [30] &quot;Mid-Atlantic&quot;                                                                           </span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] &quot;Minnesota Eastern&quot;                                                                      </span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [32] &quot;Minnesota Western&quot;                                                                      </span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [33] &quot;NC Coastal Plain&quot;                                                                       </span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [34] &quot;NC Mountains&quot;                                                                           </span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [35] &quot;NC Piedmont Rural&quot;                                                                      </span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [36] &quot;NC Piedmont Urban&quot;                                                                      </span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [37] &quot;New England&quot;                                                                            </span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [38] &quot;NH&quot;                                                                                     </span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [39] &quot;Northeast - Appalachian Plateau, Coastal Plain, New England, Piedmont, Valley and Ridge&quot;</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [40] &quot;Northeast - Appalachian Plateau, New England, Piedmont, Valley and Ridge&quot;               </span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [41] &quot;Northern Appalachians&quot;                                                                  </span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [42] &quot;NY Hydrologic Region 1/2&quot;                                                               </span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [43] &quot;NY Hydrologic Region 3&quot;                                                                 </span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [44] &quot;NY Hydrologic Region 4/4a&quot;                                                              </span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [45] &quot;NY Hydrologic Region 5&quot;                                                                 </span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [46] &quot;NY Hydrologic Region 6&quot;                                                                 </span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [47] &quot;NY Hydrologic Region 7&quot;                                                                 </span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [48] &quot;OH Region A&quot;                                                                            </span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [49] &quot;OH Region B&quot;                                                                            </span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [50] &quot;ON Southern&quot;                                                                            </span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [51] &quot;PA Carbonate Areas&quot;                                                                     </span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [52] &quot;PA Non-Carbonate Areas&quot;                                                                 </span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [53] &quot;PA Piedmont 1&quot;                                                                          </span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [54] &quot;PA Piedmont 2&quot;                                                                          </span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [55] &quot;Pacific Maritime Mountain&quot;                                                              </span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [56] &quot;Pacific Mountain System&quot;                                                                </span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [57] &quot;Pacific Northwest&quot;                                                                      </span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [58] &quot;Rocky Mountain System&quot;                                                                  </span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [59] &quot;San Francisco Bay&quot;                                                                      </span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [60] &quot;Southern Appalachians&quot;                                                                  </span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [61] &quot;Southern Driftless&quot;                                                                     </span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [62] &quot;Upper Green River&quot;                                                                      </span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [63] &quot;Upper Salmon River&quot;                                                                     </span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [64] &quot;USA&quot;                                                                                    </span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [65] &quot;VA Piedmont&quot;                                                                            </span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [66] &quot;VA, MD Coastal Plain&quot;                                                                   </span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [67] &quot;VA, MD, WV Valley and Ridge&quot;                                                            </span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [68] &quot;VT&quot;                                                                                     </span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [69] &quot;West Interior Basin and Range&quot;                                                          </span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [70] &quot;Western Cordillera&quot;                                                                     </span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [71] &quot;WV Appalachian Plateau&quot;                                                                 </span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [72] &quot;WV Eastern Valley and Ridge&quot;                                                            </span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [73] &quot;WV Western Appalachian Plateau&quot;</span></span></code></pre></div>
+<p>This list of regions can be used to determine which regions are
+contained in the database and the input <code>region</code> string value
+to use for the <code>RHG</code> function.</p>
+<p>Once you have determined which region to use, you will need to
+determine which dimensions that study derived a relationship for. Not
+all studies derive relationships for all hydraulic dimensions.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determine which dimensions were calculated for the Eastern United States region</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>regional_curve[regional_curve<span class="sc">$</span>region_name <span class="sc">==</span> <span class="st">&quot;Eastern United States&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;dimension&quot;</span>)]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] area  width depth</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Levels: area depth discharge width</span></span></code></pre></div>
+<p>As you can see, only area, width, and depth are available. Discharge
+was not derived by this study.</p>
 </div>
 
 
