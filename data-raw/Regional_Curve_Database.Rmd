@@ -53,19 +53,30 @@ Use the `RHG_graph_coefficients` function to calculate the power equation interc
 ```{r warning=FALSE}
 # Create a list to hold the region dimension coefficients
 region_dims <- list()
-# Iterate through rows in the regional_curve_graph
+
+# Iterate through rows in regional_curve_graph
 for (i in 1:nrow(regional_curve_graphs)) {
+  # Calculate the RHG coefficients
   region_dims[[i]] <- RHG_graph_coefficients(region = regional_curve_graphs[i,"region_name"],
                                              drainageArea = 1,
                                              dimensionType = regional_curve_graphs[i,"dimension"])
+  
+  # Set the `drainage_area_range` variable
+  region_dims[[i]]$drainage_area_range <- paste0(regional_curve_graphs[i,"x_1"], 
+                                                 "-",
+                                                 regional_curve_graphs[i,"x_2"])
 }
+
 # Append all of the region_dims list items into a data frame
 regions <- bind_rows(region_dims)
 
-# Set regions colunm names to match regional_curves_equation
-colnames(regions) <- c("region_name","drainageArea","dimension","slope","intercept","reference")
+# Set regions column names to match regional_curves_equation
+colnames(regions) <- c("region_name","drainageArea","dimension",
+                       "slope","intercept","reference", "drainage_area_range")
+
 # Append the regions dataframe to the regional_curves_equation data frame
 regional_curve <- bind_rows(regional_curve_equations, regions[,-2])
+
 # Reassign factors
 regional_curve$region_name <- factor(regional_curve$region_name)
 regional_curve$dimension   <- factor(regional_curve$dimension)
