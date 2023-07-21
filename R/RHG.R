@@ -1,10 +1,10 @@
 if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve"))
 
-#' @title Computes hydraulic geometry dimensions
+#' @title Computes regional hydraulic geometry dimensions
 #'
-#' @description Computes hydraulic geometry dimension (cross sectional area,
-#'     width, depth, discharge) from a built-in table of regional hydraulic
-#'     equation coefficients.
+#' @description Computes regional hydraulic geometry (RHG) dimension (cross
+#'   sectional area, width, depth, discharge) from a built-in table of regional
+#'   hydraulic geometry equation coefficients.
 #'
 #' @export
 #' @param region         character; The region that a dimension will be
@@ -32,20 +32,42 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve"))
 #'
 RHG <- function(region, drainageArea, dimensionType = c("area", "depth",
                                                         "width", "discharge")) {
-  # Subset for the selected region and dimension
-  rc <- RegionalCurve::regional_curve[RegionalCurve::regional_curve$region_name
-                                      == region &
-                  RegionalCurve::regional_curve$dimension == dimensionType,]
+  # Check inputs
 
-  # Check if the dimensionType exists for this region
-  if(dimensionType %in% rc$dimension) {
-    # Calculate the hydrologic geometry for the selected region and dimension
-    dimension <- rc$intercept * drainageArea ^ rc$slope
-  } else {
-    # Otherwise, create an numeric vector and set to NA
-    dimension <- numeric(0)
-    dimension <- NA
+  # Assemble inputs into data frame
+  inputs <- data.frame(region, drainageArea, dimensionType,
+                       dimension = NA)
+
+  # Subset regional_curve for the selected region and dimension
+  rc <- RegionalCurve::regional_curve %>%
+    dplyr::mutate(region_name = as.character(region_name)) %>%
+    dplyr::mutate(dimension = as.character(dimension))
+
+  # Create list to hold all of the rhg dimensions
+  rhg_dims <- list()
+
+  # Iterate through inputs
+  for (i in 1:length(inputs$region)) {
+    # Filter inputs for current row and get variables
+    inputs_i <- inputs[i,]
+    region         <- inputs_i$region
+    dimension_type <- inputs_i$dimensionType
+    drainage_area  <- inputs_i$drainageArea
+
+    # Filter rc for current row and get variables
+    rc_i <- rc %>%
+      dplyr::filter(region_name == region,
+                    dimension == dimension_type)
+    intercept <- rc_i$intercept
+    slope     <- rc_i$slope
+
+    # Calculate hydraulic geometry for current row
+    inputs_i$dimension <- intercept * drainage_area ^ slope
+    rhg_dims[[i]] <- inputs_i
   }
 
-  return(dimension)
+  # Append all of the rhg_dims
+  dims <- dplyr::bind_rows(rhg_dims)
+
+  return(dims$dimension)
 }
