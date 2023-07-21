@@ -85,7 +85,7 @@ regional_curve$dimension   <- factor(regional_curve$dimension)
 # Save regional curve data frames
 ```{r}
 # Save data frames
-save(regional_curve, regional_curve_graphs, file = "regional_curve.RData")
+usethis::use_data(regional_curve, internal = FALSE, overwrite = TRUE)
 ```
 
 # Summarize regional analyses
