@@ -1,0 +1,99 @@
+---
+title: "Compare Regional Curves"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    fig_caption: yes
+vignette: >
+  %\VignetteIndexEntry{Compare Regional Curves}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(rlang)
+```
+
+
+```{r}
+df1 <- data.frame(region = c("Minnesota Eastern",
+                            "Minnesota Eastern",
+                            "Minnesota Western",
+                            "Minnesota Western"),
+                 drainage_area = c(0.6, 
+                                   1100,
+                                   7.5, 
+                                   13500),
+                 width = c(RHG("Minnesota Eastern", 0.6, "width"),
+                           RHG("Minnesota Eastern", 1100, "width"),
+                           RHG("Minnesota Western", 7.5, "width"),
+                           RHG("Minnesota Western", 13500, "width"))
+)
+
+df1
+```
+
+```{r}
+regions_df <- function(regions) {
+  regions_df <- RegionalCurve::regional_curve %>%
+    # Create new variables
+    mutate(drainage_min = str_extract(drainage_area_range, "[^-]+")) %>%
+    mutate(drainage_max = str_extract(drainage_area_range, "\\b\\w+$")) %>%
+    # Filter for regions
+    filter(region_name %in% regions) %>%
+    mutate(region_name = factor(region_name)) %>%
+    mutate(dimension = as.character(dimension)) %>%
+    # Create a record for each min and max drainage area
+    select(c(region_name, dimension, drainage_min, drainage_max)) %>%
+    pivot_longer(c(drainage_min, drainage_max), names_to = NULL,
+                 values_to = "drainage_area") %>%
+    # Calculate dimensions
+    mutate(value = RHG(region_name, drainage_area, dimension))
+  
+  return(regions_df)
+}
+
+regions <- c("Minnesota Eastern", "Minnesota Western")
+df2 <- regions_df(regions)
+df2
+```
+
+```{r}
+
+```
+
+
+
+```{r}
+breaks <- 10^(-10:10)
+minor_breaks <- rep(1:9, 21)*(10^rep(-10:10, each=9))
+
+ggplot(df1, aes(x = drainage_area, y = width, color = region)) + 
+  geom_line() + 
+  scale_x_log10(breaks = breaks, minor_breaks = minor_breaks) +
+  scale_y_log10(breaks = breaks, minor_breaks = minor_breaks) +
+  annotation_logticks() +
+  labs(x = "Drainage Area (sq miles)",
+       y = "Width (feet)") +
+  theme_bw() +
+  theme(legend.position = c(.15,.90),
+        legend.title = element_blank())
+```
+
+
+```{r}
+region_dimension_graph <- function(regions, dimension) {
+  
+}
+```
+
+
+```{r}
+regions_graph <- function(regions) {
+  
+}
+```
+
