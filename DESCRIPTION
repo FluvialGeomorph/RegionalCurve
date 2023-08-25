@@ -1,7 +1,7 @@
 Package: RegionalCurve
 Type: Package
 Title: A Collection of Hydraulic Regional Curve Relationships
-Version: 0.1.5
+Version: 0.1.6
 Author: c(
     person("Michael", "Dougherty", 
            email = "Michael.P.Dougherty@usace.army.mil", 
