@@ -1,5 +1,3 @@
-if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve"))
-
 #' @title Computes regional hydraulic geometry dimensions
 #'
 #' @description Computes regional hydraulic geometry (RHG) dimension (cross
@@ -30,44 +28,59 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve"))
 #' # Calculate the discharge for a 200 sq mi watershed in Massachusetts.
 #' RHG(region = "MA", drainageArea = 200, dimensionType = "discharge")
 #'
+#' @importFrom assertthat assert_that
+#' @importFrom dplyr %>% mutate filter bind_rows
+#'
 RHG <- function(region, drainageArea, dimensionType = c("area", "depth",
                                                         "width", "discharge")) {
-  # Check inputs
+  # Get regional_curve package data
+  rc <- RegionalCurve::regional_curve %>%
+    # Remove factors
+    dplyr::mutate(region_name = as.character(region_name)) %>%
+    dplyr::mutate(dimension = as.character(dimension))
+
+  # Check parameters
+  assert_that(is_character(region),
+              msg = "region must be a character")
+  assert_that(all(region %in% rc$region_name),
+              msg = "region must be in: RegionalCurve::regional_curve$region_name")
+  assert_that(is.numeric(drainageArea),
+              msg = "drainageArea must be a numeric")
+  assert_that(is.character(dimensionType),
+              msg = "dimensionType must be a character")
+  assert_that(all(dimensionType %in% c("area", "depth", "width", "discharge")),
+              msg = "dimensionType must be one of: area, depth, width, discharge")
 
   # Assemble inputs into data frame
   inputs <- data.frame(region, drainageArea, dimensionType,
                        dimension = NA)
 
-  # Subset regional_curve for the selected region and dimension
-  rc <- RegionalCurve::regional_curve %>%
-    dplyr::mutate(region_name = as.character(region_name)) %>%
-    dplyr::mutate(dimension = as.character(dimension))
-
-  # Create list to hold all of the rhg dimensions
+  # Create empty list to hold the calculated rhg dimension data frames
   rhg_dims <- list()
 
   # Iterate through inputs
   for (i in 1:length(inputs$region)) {
     # Filter inputs for current row and get variables
     inputs_i <- inputs[i,]
-    region         <- inputs_i$region
-    dimension_type <- inputs_i$dimensionType
-    drainage_area  <- inputs_i$drainageArea
 
-    # Filter rc for current row and get variables
+    # Filter rc for current region and dimension
     rc_i <- rc %>%
-      dplyr::filter(region_name == region,
-                    dimension == dimension_type)
-    intercept <- rc_i$intercept
-    slope     <- rc_i$slope
+      dplyr::filter(region_name == inputs_i$region,
+                    dimension == inputs_i$dimensionType)
 
-    # Calculate hydraulic geometry for current row
-    inputs_i$dimension <- intercept * drainage_area ^ slope
+    # Check if region has this dimension
+    if(length(rc_i$dimension) == 0) {
+      inputs_i$dimension <- NA
+    } else {
+      # Calculate hydraulic geometry for current item
+      inputs_i$dimension <- rc_i$intercept * inputs_i$drainageArea ^ rc_i$slope
+    }
+    # Append the data frame of calculated dimensions to the list
     rhg_dims[[i]] <- inputs_i
   }
 
-  # Append all of the rhg_dims
-  dims <- dplyr::bind_rows(rhg_dims)
+  # Append the list of data frames in rhg_dims into a single data frame
+  outputs <- dplyr::bind_rows(rhg_dims)
 
-  return(dims$dimension)
+  return(outputs$dimension)
 }

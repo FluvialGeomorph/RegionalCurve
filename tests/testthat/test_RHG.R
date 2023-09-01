@@ -87,10 +87,23 @@ test_that("missing dimensionType returns NA", {
                FALSE)
 })
 
-
 test_that("vector input", {
   expect_contains(RHG(region = c("MA", "MA"),
                       drainageArea = c(1, 1),
                       dimensionType = c("width", "depth")),
                   c(15.04180, 0.950200))
+  expect_contains(RHG(region = c("MA", "MA", "MA"),
+                      drainageArea = c(1, 1, 1),
+                      dimensionType = c("width", "depth", "Yo Mamma")),
+                  c(15.04180, 0.950200, NA))
+})
+
+test_that("check error checks", {
+  expect_error(RHG(1, 1, "depth"))
+  expect_error(RHG("MA", "Yo Mamma", "depth"))
+  expect_error(RHG("MA", 1, 1))
+  expect_error(RHG("Yo Mamma", 1, "depth"))
+  expect_error(RHG("MA", 1, "Yo Mamma"))
+  expect_error(RHG(c("MA", "Yo Mamma"), c(1, 1), c("depth", "depth")))
+  expect_error(RHG(c("MA", "MA"), c(1, 1), c("depth", "Yo Mamma")))
 })

@@ -2,7 +2,7 @@
 % Please edit documentation in R/RHG.R
 \name{RHG}
 \alias{RHG}
-\title{Computes hydraulic geometry dimensions}
+\title{Computes regional hydraulic geometry dimensions}
 \usage{
 RHG(
   region,
@@ -27,9 +27,9 @@ The numeric value of the requested hydraulic dimension. The units
         width: feet, discharge: cubic feet per second
 }
 \description{
-Computes hydraulic geometry dimension (cross sectional area,
-    width, depth, discharge) from a built-in table of regional hydraulic
-    equation coefficients.
+Computes regional hydraulic geometry (RHG) dimension (cross
+  sectional area, width, depth, discharge) from a built-in table of regional
+  hydraulic geometry equation coefficients.
 }
 \details{
 This function uses values in the \code{regional_curve} data frame
