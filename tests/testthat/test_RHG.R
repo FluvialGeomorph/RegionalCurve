@@ -1,5 +1,11 @@
 context("RHG")
 
+test_that("Test expect_secure", {
+  skip_on_cran()
+  ## Tests function and this package
+  oysteR::expect_secure("RegionalCurve")
+})
+
 test_that("dimensionType = 'width'", {
   expect_equal(RHG(region = "MA", drainageArea = 1,   dimensionType = "width"),
                15.04180, tolerance = 1e-4)
