@@ -40,7 +40,7 @@ RHG <- function(region, drainageArea, dimensionType = c("area", "depth",
     dplyr::mutate(dimension = as.character(dimension))
 
   # Check parameters
-  assert_that(is_character(region),
+  assert_that(is.character(region),
               msg = "region must be a character")
   assert_that(all(region %in% rc$region_name),
               msg = "region must be in: RegionalCurve::regional_curve$region_name")

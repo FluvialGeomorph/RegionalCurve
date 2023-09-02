@@ -85,6 +85,14 @@ test_that("missing dimensionType returns NA", {
                TRUE)
   expect_equal(is.na(RHG(region = "Eastern Highlands", 300, "width")),
                FALSE)
+  expect_equal(is.na(RHG(region = "USA", 1, "width")),
+               FALSE)
+  expect_equal(is.na(RHG(region = "USA", 1, "depth")),
+               FALSE)
+  expect_equal(is.na(RHG(region = "USA", 1, "area")),
+               FALSE)
+  expect_equal(is.na(RHG(region = "USA", 1, "discharge")),
+               TRUE)
 })
 
 test_that("vector input", {
@@ -92,10 +100,10 @@ test_that("vector input", {
                       drainageArea = c(1, 1),
                       dimensionType = c("width", "depth")),
                   c(15.04180, 0.950200))
-  expect_contains(RHG(region = c("MA", "MA", "MA"),
+  expect_contains(RHG(region = c("USA", "USA", "USA"),
                       drainageArea = c(1, 1, 1),
-                      dimensionType = c("width", "depth", "Yo Mamma")),
-                  c(15.04180, 0.950200, NA))
+                      dimensionType = c("width", "depth", "discharge")),
+                  c(2.7, 0.3, NA))
 })
 
 test_that("check error checks", {
