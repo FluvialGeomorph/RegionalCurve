@@ -11,24 +11,23 @@ vignette: >
 ---
 
 ```{r}
-library(dplyr)
-library(tidyr)
-library(ggplot2)
-library(stringr)
-library(rlang)
+library(patchwork)
 ```
 
 ```{r}
 regions = c("Minnesota Eastern", "Minnesota Western")
-dimension_type = "area"
-region_dimension_graph(regions, dimension_type)
+MN_width <- region_dimension_graph(regions, "width")
+MN_depth <- region_dimension_graph(regions, "depth")
+MN_area <- region_dimension_graph(regions, "area")
 ```
 
+```{r fig.height=6, fig.width=5.5}
+MN_width / MN_depth / MN_area
+```
 
-
-```{r}
-regions_graph <- function(regions) {
-  
-}
+```{r fig.height=6, fig.width=5.5}
+regions_4 = c("MA", "VA Piedmont")
+dimension_types_4 = c("width", "depth", "area", "discharge")
+region_graph(regions_4, dimension_types_4)
 ```
 
