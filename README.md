@@ -1,7 +1,7 @@
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- rmarkdown::render(input="README.Rmd", output_file = "README.md", output_format = "md_document") -->
 
-<img src="man/figures/rc-3-logo.png" width=250 align="right" />
+<img src="man/figures/rc-3-logo.png" width="250" align="right"/>
 
 # RegionalCurve
 
@@ -13,11 +13,9 @@ An R Package of Hydraulic Regional Curve Relationships
 [![Project Status: Active The project has reached a stable, usable state
 and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![packageversion](https://img.shields.io/badge/Package%20version-0.1.5-orange.svg?style=flat-square)](commits/master)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2023--02--24-yellowgreen.svg)](/commits/master)
+[![packageversion](https://img.shields.io/badge/Package%20version-0.1.6-orange.svg?style=flat-square)](commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%60r%20gsub('-',%20'--',%20Sys.Date())%60-yellowgreen.svg)](/commits/master)
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
-[![Travis-CI Build
-Status](https://travis-ci.org/mpdougherty/RegionalCurve.svg?branch=master)](https://travis-ci.org/mpdougherty/RegionalCurve)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/mpdougherty/regionalcurve?branch=master&svg=true)](https://ci.appveyor.com/project/mpdougherty/regionalcurve)
 [![codecov](https://codecov.io/github/mpdougherty/regionalcurve/branch/master/graphs/badge.svg)](https://codecov.io/github/mpdougherty/regionalcurve)
@@ -36,7 +34,7 @@ gap by:
 -   Providing assessor functions to streamline application of these
     relationships in other studies.
 
-<img src="man/figures/HDQLO-03_h120.jpg" width=125 align="right" />
+<img src="man/figures/HDQLO-03_h120.jpg" width="125" align="right"/>
 
 ## Funding
 
@@ -52,11 +50,12 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 -   [Flood Risk Management Program
     (FRM)](https://www.iwr.usace.army.mil/Missions/Flood-Risk-Management/Flood-Risk-Management-Program/)
 
-<img src="man/figures/FRMP_300.png" height=75 align="right" /><img src="man/figures/MRG&P_300.png" height=75 align="right" /><img src="man/figures/RSMlogo.png" height=75 align="right" /><img src="man/figures/EMRRP_logo_300.png" height=75 align="right" />
+<img src="man/figures/FRMP_300.png" height="75" align="right"/><img src="man/figures/MRG&amp;P_300.png" height="75" align="right"/><img src="man/figures/RSMlogo.png" height="75" align="right"/><img src="man/figures/EMRRP_logo_300.png" height="75" align="right"/>
 
 ## Authors
 
 -   Michael Dougherty, Geographer, U.S. Army Corps of Engineers
+    <a itemprop="sameAs" content="https://orcid.org/0000-0002-1465-5927" href="https://orcid.org/0000-0002-1465-5927" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon" style="width:1em;margin-right:.5em;"/>https://orcid.org/0000-0002-1465-5927</a>
 -   Christopher Haring, Fluvial Geomorphologist/Research Physical
     Scientist, U.S. Army Corps of Engineers
 
@@ -65,22 +64,18 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 To install the `RegionalCurve` package, install from GitHub using the
 `devtools` package:
 
-``` r
-library(devtools)
-install_github(repo = "FluvialGeomorph/RegionalCurve", build_vignettes = TRUE)
-```
+    library(devtools)
+    install_github(repo = "FluvialGeomorph/RegionalCurve", build_vignettes = TRUE)
 
 ## Vignettes
 
 View the vignettes to get started using the package.
 
-``` r
-# View the vignettes in a web browser
-browseVignettes("RegionalCurve")
+    # View the vignettes in a web browser
+    browseVignettes("RegionalCurve")
 
-# Open a specific vignette in the RStudio help window
-vignette("Get_Regional_Hydraulic_Dimensions")
-```
+    # Open a specific vignette in the RStudio help window
+    vignette("Get_Regional_Hydraulic_Dimensions")
 
 ## Calculating Hyrdaulic Dimensions
 
@@ -91,10 +86,8 @@ function computes the hydraulic geometry dimension (cross sectional
 area, width, depth, discharge) from a built-in data frame of regional
 hydraulic equation coefficients (`regional_curve`).
 
-``` r
-# Calculate the discharge for a 200 sq mi watershed in Massachusetts.
-RHG(region = "MA", drainageArea = 200,   dimensionType = "width")
-```
+    # Calculate the discharge for a 200 sq mi watershed in Massachusetts.
+    RHG(region = "MA", drainageArea = 200,   dimensionType = "width")
 
 The units of the value returned from the `RHG` function will depend on
 the requested dimension (see the `RHG` function help for details). In
@@ -104,10 +97,8 @@ feet.
 To determine which regions are available, the `regional_curve` data
 frame can be queried.
 
-``` r
-# Determine the available regions
-levels(regional_curve$region_name)
-```
+    # Determine the available regions
+    levels(regional_curve$region_name)
 
 This list of regions can be used to determine which regions are
 contained in the database and the input `region` string value to use for
@@ -117,10 +108,8 @@ Once you have determined which region to use, you will need to determine
 which dimensions that study derived a relationship for. Not all studies
 derive relationships for all hydraulic dimensions.
 
-``` r
-# Determine which dimensions were calculated for the Eastern United States region
-regional_curve[regional_curve$region_name == "Eastern United States", c("dimension")]
-```
+    # Determine which dimensions were calculated for the Eastern United States region
+    regional_curve[regional_curve$region_name == "Eastern United States", c("dimension")]
 
 As you can see, only area, width, and depth are available. Discharge was
 not derived by this study.
@@ -130,6 +119,7 @@ not derived by this study.
 The table below lists the regional hydraulic dimension relationship
 studies included in this package. It lists the dimensions calculated for
 each regional analysis.
+
 <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -532,6 +522,26 @@ TRUE
 </td>
 <td style="text-align:left;">
 NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KY Bluegrass
+</td>
+<td style="text-align:left;">
+Parola et al (2007)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
 </td>
 </tr>
 <tr>
