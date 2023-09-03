@@ -16,7 +16,7 @@ RegionalCurve::regional_curve$region_name.}
 "discharge"}
 }
 \value{
-A ggplot object
+A ggplot object.
 }
 \description{
 Creates a Regional Hydraulic Dimension graph for the regions
