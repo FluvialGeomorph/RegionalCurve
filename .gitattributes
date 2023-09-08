@@ -13,3 +13,10 @@
 *.R  	  text
 *.Rproj text
 *.[Rr]md   linguist-detectable
+*.Rmd linguist-detectable
+*.RData linguist-detectable
+*.R linguist-language=R
+*.Rmd linguist-language=R
+*.RData linguist-language=R
+*.rda linguist-language=R
+*.Rd linguist-language=R
