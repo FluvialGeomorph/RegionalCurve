@@ -4,7 +4,10 @@
 \alias{region_dimension_graph}
 \title{Region Dimension Graph}
 \usage{
-region_dimension_graph(regions, dimension_type)
+region_dimension_graph(
+  regions,
+  dimension_type = c("area", "depth", "width", "discharge")
+)
 }
 \arguments{
 \item{regions}{character; A vector of region names that will be

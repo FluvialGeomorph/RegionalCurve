@@ -8,8 +8,8 @@
 #'                        displayed on the graph. For a complete list of
 #'                        regions, see levels(regional_curve$region_name)
 #'                        RegionalCurve::regional_curve$region_name.
-#' @param dimension_types character; Dimension type: "area", "depth", "width",
-#'                       "discharge"
+#' @param dimension_types character; A vector of dimension types: "area",
+#'                        "depth", "width", "discharge"
 #'
 #' @return A ggplot object.
 #'

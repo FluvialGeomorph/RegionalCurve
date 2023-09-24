@@ -12,8 +12,8 @@ displayed on the graph. For a complete list of
 regions, see levels(regional_curve$region_name)
 RegionalCurve::regional_curve$region_name.}
 
-\item{dimension_types}{character; Dimension type: "area", "depth", "width",
-"discharge"}
+\item{dimension_types}{character; A vector of dimension types: "area",
+"depth", "width", "discharge"}
 }
 \value{
 A ggplot object.
