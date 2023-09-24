@@ -4,8 +4,7 @@ p <- region_dimension_graph(c("Minnesota Eastern", "Minnesota Western"),
                             dimension_type = "width")
 
 test_that("created plot exists", {
-  expect_is(p$layers[[1]], "ggproto")
-  expect_is(p$scales, "ggproto")
+  expect_s3_class(p, "ggplot")
 })
 
 test_that("check labels", {

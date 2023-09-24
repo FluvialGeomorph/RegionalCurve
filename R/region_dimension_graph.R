@@ -23,7 +23,11 @@
 #' @importFrom ggplot2 ggplot aes geom_line scale_x_log10 scale_y_log10
 #'             annotation_logticks labs theme_bw theme element_blank
 #'
-region_dimension_graph <- function(regions, dimension_type) {
+region_dimension_graph <- function(regions,
+                                   dimension_type = c("area", "depth",
+                                                      "width", "discharge")) {
+  # Check parameters
+  check_regions(regions)
 
   df_dim <- region_min_max(regions) %>%
     filter(dimension == dimension_type)
