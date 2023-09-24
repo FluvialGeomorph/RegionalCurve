@@ -1,5 +1,3 @@
-context("RHG_graph_coefficients")
-
 test_that("drainageArea = 1, Area m and k", {
   expect_equal(RHG_graph_coefficients(region = "Eastern United States",
                           drainageArea = 1, dimensionType = "area")$m,

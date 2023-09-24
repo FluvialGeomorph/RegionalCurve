@@ -1,4 +1,3 @@
-context("RHG_graph")
 # Compare to values in the regional_curve_graphs data frame
 
 test_that("dimensionType = 'area'", {

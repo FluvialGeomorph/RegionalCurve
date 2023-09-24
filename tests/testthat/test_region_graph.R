@@ -11,10 +11,10 @@ p3 <- region_graph(regions_3, dimension_types_3)
 #p3
 
 test_that("created plot exists", {
-  expect_is(p4$layers[[1]], "ggproto")
-  expect_is(p4$scales, "ggproto")
-  expect_is(p3$layers[[1]], "ggproto")
-  expect_is(p3$scales, "ggproto")
+  expect_s3_class(p4, "ggplot")
+  expect_s3_class(p4$scales, "ggproto")
+  expect_s3_class(p3, "ggplot")
+  expect_s3_class(p3$scales, "ggproto")
 })
 
 test_that("check data", {
