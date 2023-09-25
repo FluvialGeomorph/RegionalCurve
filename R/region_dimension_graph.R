@@ -28,6 +28,7 @@ region_dimension_graph <- function(regions,
                                                       "width", "discharge")) {
   # Check parameters
   check_regions(regions)
+  check_dimensionType(dimension_type)
 
   df_dim <- region_min_max(regions) %>%
     filter(dimension == dimension_type)

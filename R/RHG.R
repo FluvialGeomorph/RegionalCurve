@@ -46,17 +46,10 @@ RHG <- function(region, drainageArea, dimensionType = c("area", "depth",
 
   # Check parameters
   check_regions(region)
+  check_dimensionType(dimensionType)
   if(!is.numeric(drainageArea)) {
     cli_abort(c(
       "x" = "{.arg drainageArea} must be a numeric vector."))
-  }
-  if(!is.character(dimensionType)) {
-    cli_abort(c(
-      "x" = "{.arg dimensionType} must be a character vector."))
-  }
-  if(!all((dimensionType %in% c('area', 'depth', 'width', 'discharge')))) {
-    cli_abort(c(
-      "x" = "{.arg dimensionType} must be one of 'area', 'depth', 'width', or 'discharge'."))
   }
   # check parameters equal length
   if(!(length(region) == length(drainageArea) &

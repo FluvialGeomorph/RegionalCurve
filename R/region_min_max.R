@@ -20,17 +20,14 @@
 #' @importFrom tidyr pivot_longer
 #'
 region_min_max <- function(regions) {
+  # Check parameters
+  check_regions(regions)
+
   # Get regional_curve package data
   rc <- RegionalCurve::regional_curve %>%
     # Remove factors
     mutate(region_name = as.character(region_name)) %>%
     mutate(dimension = as.character(dimension))
-
-  # Check parameters
-  assert_that(is.character(regions),
-              msg = "regions must be a character")
-  assert_that(all(regions %in% rc$region_name),
-              msg = "regions must be in: RegionalCurve::regional_curve$region_name")
 
   # Calculate min-max dimension for regions
   min_max_df <- rc %>%

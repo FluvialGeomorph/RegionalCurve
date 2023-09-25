@@ -1,6 +1,4 @@
-if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs"))
-
-#' @title Compute hydraulic geometry from graph
+#' @title Compute Hydraulic Geometry From Graph
 #'
 #' @export
 #' @description  Computes hydraulic dimension (cross sectional area, width,
@@ -24,10 +22,27 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs")
 #'           dimensionType = "area")
 #'
 RHG_graph <- function(region, drainageArea, dimensionType) {
+  # Check parameters
+  check_regions(region)
+  check_dimensionType(dimensionType)
+  if(!is.numeric(drainageArea)) {
+    cli_abort(c(
+      "x" = "{.arg drainageArea} must be a numeric vector."))
+  }
+  # check parameters equal length
+  if(!(length(region) == length(drainageArea) &
+       length(drainageArea) == length(dimensionType))) {
+    cli_abort(c(
+      "x" = "Arguments are not of matching length.",
+      "i" = "`region`: {length(region)}",
+      "i" = "`drainageArea`: {length(drainageArea)}",
+      "i" = "`dimensionType`: {length(dimensionType)}"))
+  }
+
   # Subset the regional_curve_graphs for the selected region and dimension
   rc <- regional_curve_graphs[regional_curve_graphs$region == region &
                               regional_curve_graphs$dimension == dimensionType,]
-  # Calculate the hydrologic geometry for the selected region and dimension
+  # Calculate the hydraulic geometry for the selected region and dimension
   dimension <- rc$y_1 * drainageArea^(log(rc$y_2 / rc$y_1 ) / (log(rc$x_2 /
                                                                      rc$x_1)))
   # Return the calculated dimensions in a data frame

@@ -24,6 +24,9 @@
 #'             facet_wrap vars labeller label_wrap_gen
 #'
 region_graph <- function(regions, dimension_types) {
+  # Check parameters
+  check_regions(regions)
+  check_dimensionType(dimension_types)
 
   # Create graph axes ticks and labels
   breaks <- 10^(-10:10)
