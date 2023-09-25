@@ -7,10 +7,10 @@
 regional_curves()
 }
 \value{
-A data frame of the `regional_curve` package data.
+A data frame of the \code{regional_curve} package data.
 }
 \description{
-Returns a data frame of the `regional_curve` package data.
+Returns a data frame of the \code{regional_curve} package data.
 }
 \examples{
 rc <- regional_curves()

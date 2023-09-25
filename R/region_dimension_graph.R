@@ -22,6 +22,7 @@
 #' @importFrom dplyr filter
 #' @importFrom ggplot2 ggplot aes geom_line scale_x_log10 scale_y_log10
 #'             annotation_logticks labs theme_bw theme element_blank
+#' @importFrom rlang .data
 #'
 region_dimension_graph <- function(regions,
                                    dimension_type = c("area", "depth",
@@ -31,7 +32,7 @@ region_dimension_graph <- function(regions,
   check_dimensionType(dimension_type)
 
   df_dim <- region_min_max(regions) %>%
-    filter(dimension == dimension_type)
+    filter(.data$dimension == dimension_type)
 
   breaks <- 10^(-10:10)
   minor_breaks <- rep(1:9, 21)*(10^rep(-10:10, each=9))
@@ -41,7 +42,10 @@ region_dimension_graph <- function(regions,
                             "area" = "Cross Section Area (sq ft)",
                             "discharge" = "Discharge (cu ft/sec)")
 
-  ggplot(df_dim, aes(x = drainage_area, y = value, color = region_name)) +
+  ggplot(df_dim,
+         aes(x = .data$drainage_area,
+             y = .data$value,
+             color = .data$region_name)) +
     geom_line() +
     scale_x_log10(breaks = breaks, minor_breaks = minor_breaks) +
     scale_y_log10(breaks = breaks, minor_breaks = minor_breaks) +

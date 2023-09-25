@@ -20,15 +20,23 @@ License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 2.10)
-Suggests: testthat (>= 3.0.0),
+Suggests: 
     covr,
-    dplyr,
     kableExtra,
     knitr,
     oysteR,
+    patchwork,
     rmarkdown,
+    testthat (>= 3.0.0),
+Imports:
+    cli,
+    dplyr,
+    ggplot2,
+    rlang,
+    stringr,
     tidyr
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/testthat/parallel: true
+Roxygen: list(markdown = TRUE)

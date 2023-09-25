@@ -22,7 +22,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs")
 #'     value on these graphs (i.e., cross-sectional area, width, mean depth)
 #'     from the x-axis value (i.e., drainage area). Monomial relationships of
 #'     the form \eqn{y=ax^m}, known as power functions, appear as straight
-#'     lines in a log–log graph, with the exponent (\code{m}) and constant
+#'     lines in a log–log graph, with the exponent (`m`) and constant
 #'     (\eqn{a}) term corresponding to slope and intercept of the line
 #'     (\eqn{y = mx + b}).
 #'
