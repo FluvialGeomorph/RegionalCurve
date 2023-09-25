@@ -2,7 +2,7 @@
 % Please edit documentation in R/RHG_graph.R
 \name{RHG_graph}
 \alias{RHG_graph}
-\title{Compute hydraulic geometry from graph}
+\title{Compute Hydraulic Geometry From Graph}
 \usage{
 RHG_graph(region, drainageArea, dimensionType)
 }
