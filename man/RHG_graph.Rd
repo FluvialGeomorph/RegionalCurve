@@ -23,6 +23,8 @@ The value of the requested hydraulic dimension
 Computes hydraulic dimension (cross sectional area, width,
 or depth) from a built-in table of regional hydraulic curve graph
 coordinates.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 }
 \examples{
 # Calculate the cross sectional area for a watershed with drainage area = 1

@@ -4,6 +4,8 @@
 #'   sectional area, width, depth, discharge) from a built-in table of regional
 #'   hydraulic geometry equation coefficients.
 #'
+#' `r lifecycle::badge("stable")`
+#'
 #' @export
 #' @param region         character; The region that a dimension will be
 #'                       calculated for. For a complete list of regions, see

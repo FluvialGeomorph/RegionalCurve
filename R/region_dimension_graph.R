@@ -3,8 +3,9 @@
 #' @description Creates a Regional Hydraulic Dimension graph for the regions
 #' provided for the specified dimension.
 #'
-#' @export
+#' `r lifecycle::badge("stable")`
 #'
+#' @export
 #' @param regions         character; A vector of region names that will be
 #'                        displayed on the graph. For a complete list of
 #'                        regions, see levels(regional_curve$region_name)

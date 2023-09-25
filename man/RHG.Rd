@@ -30,6 +30,8 @@ width: feet, discharge: cubic feet per second
 Computes regional hydraulic geometry (RHG) dimension (cross
 sectional area, width, depth, discharge) from a built-in table of regional
 hydraulic geometry equation coefficients.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 }
 \details{
 This function uses values in the \code{regional_curve} data frame

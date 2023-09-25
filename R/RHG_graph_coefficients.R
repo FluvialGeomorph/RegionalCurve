@@ -6,6 +6,8 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs")
 #'     a table of regional hydraulic curve coordinates contained in a built-in
 #'     table.
 #'
+#' `r lifecycle::badge("stable")`
+#'
 #' @export
 #' @param region        character; The region that a dimension will be
 #'                      calculated for. See the regional_curves$region field

@@ -24,6 +24,8 @@ A data frame containing the value of slope (\eqn{m}) and intercept
 Computes the regional curve power function coefficients from
 a table of regional hydraulic curve coordinates contained in a built-in
 table.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 }
 \details{
 Regional curves are typically displayed on log-log plots. This
