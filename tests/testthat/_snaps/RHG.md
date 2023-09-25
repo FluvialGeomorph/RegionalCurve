@@ -18,6 +18,7 @@
       RHG("MA", 1, 1)
     Error <rlang_error>
       x `dimensionType` must be a character vector.
+      i You supplied: numeric
 
 ---
 
@@ -33,6 +34,7 @@
       RHG("MA", 1, "Yo Mamma")
     Error <rlang_error>
       x `dimensionType` must be one of 'area', 'depth', 'width', or 'discharge'.
+      i You supplied: Yo Mamma
 
 ---
 
@@ -48,6 +50,7 @@
       RHG(c("MA", "MA"), c(1, 1), c("depth", "Yo Mamma"))
     Error <rlang_error>
       x `dimensionType` must be one of 'area', 'depth', 'width', or 'discharge'.
+      i You supplied: Yo Mamma
 
 ---
 
