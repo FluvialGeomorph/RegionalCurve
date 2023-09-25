@@ -8,8 +8,8 @@
 #'                        displayed on the graph. For a complete list of
 #'                        regions, see levels(regional_curve$region_name)
 #'                        RegionalCurve::regional_curve$region_name.
-#' @param dimension_types character; Dimension type: "area", "depth", "width",
-#'                       "discharge"
+#' @param dimension_types character; A vector of dimension types: "area",
+#'                        "depth", "width", "discharge"
 #'
 #' @return A ggplot object.
 #'
@@ -24,6 +24,9 @@
 #'             facet_wrap vars labeller label_wrap_gen
 #'
 region_graph <- function(regions, dimension_types) {
+  # Check parameters
+  check_regions(regions)
+  check_dimensionType(dimension_types)
 
   # Create graph axes ticks and labels
   breaks <- 10^(-10:10)

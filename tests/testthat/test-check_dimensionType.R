@@ -1,0 +1,23 @@
+test_that("check dimension values", {
+  expect_true(check_dimensionType("area"))
+  expect_true(check_dimensionType(c("area")))
+  expect_true(check_dimensionType(c("area", "area")))
+  expect_true(check_dimensionType("depth"))
+  expect_true(check_dimensionType(c("depth")))
+  expect_true(check_dimensionType(c("depth", "depth")))
+  expect_true(check_dimensionType("width"))
+  expect_true(check_dimensionType(c("width")))
+  expect_true(check_dimensionType(c("width", "width")))
+  expect_true(check_dimensionType("discharge"))
+  expect_true(check_dimensionType(c("discharge")))
+  expect_true(check_dimensionType(c("discharge", "discharge")))
+  expect_true(check_dimensionType(c("area", "width", "depth")))
+  expect_true(check_dimensionType(c("area", "width", "depth", "discharge")))
+})
+
+test_that("check errors", {
+  expect_snapshot(check_dimensionType("Area"), error = TRUE)
+  expect_snapshot(check_dimensionType("height"), error = TRUE)
+  expect_snapshot(check_dimensionType(7), error = TRUE)
+  expect_snapshot(check_dimensionType(c("area", "Yo Mamma")), error = TRUE)
+})

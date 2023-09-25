@@ -43,4 +43,9 @@ This function uses values in the \code{regional_curve} data frame
 # Calculate the discharge for a 200 sq mi watershed in Massachusetts.
 RHG(region = "MA", drainageArea = 200, dimensionType = "discharge")
 
+# Calculate the discharge for a 200 sq mi watershed in Massachusetts.
+RHG(region        = c("MA","MA","MA", "MA"),
+    drainageArea  = c(200, 200, 200, 200),
+    dimensionType = c("width", "depth", "area", "discharge"))
+
 }

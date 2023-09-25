@@ -28,7 +28,12 @@
 #' # Calculate the discharge for a 200 sq mi watershed in Massachusetts.
 #' RHG(region = "MA", drainageArea = 200, dimensionType = "discharge")
 #'
-#' @importFrom assertthat assert_that
+#' # Calculate the discharge for a 200 sq mi watershed in Massachusetts.
+#' RHG(region        = c("MA","MA","MA", "MA"),
+#'     drainageArea  = c(200, 200, 200, 200),
+#'     dimensionType = c("width", "depth", "area", "discharge"))
+#'
+#' @importFrom cli cli_abort
 #' @importFrom dplyr %>% mutate filter bind_rows
 #'
 RHG <- function(region, drainageArea, dimensionType = c("area", "depth",
@@ -40,16 +45,21 @@ RHG <- function(region, drainageArea, dimensionType = c("area", "depth",
     dplyr::mutate(dimension = as.character(dimension))
 
   # Check parameters
-  assert_that(is.character(region),
-              msg = "region must be a character")
-  assert_that(all(region %in% rc$region_name),
-              msg = "region must be in: RegionalCurve::regional_curve$region_name")
-  assert_that(is.numeric(drainageArea),
-              msg = "drainageArea must be a numeric")
-  assert_that(is.character(dimensionType),
-              msg = "dimensionType must be a character")
-  assert_that(all(dimensionType %in% c("area", "depth", "width", "discharge")),
-              msg = "dimensionType must be one of: area, depth, width, discharge")
+  check_regions(region)
+  check_dimensionType(dimensionType)
+  if(!is.numeric(drainageArea)) {
+    cli_abort(c(
+      "x" = "{.arg drainageArea} must be a numeric vector."))
+  }
+  # check parameters equal length
+  if(!(length(region) == length(drainageArea) &
+       length(drainageArea) == length(dimensionType))) {
+    cli_abort(c(
+      "x" = "Arguments are not of matching length.",
+      "i" = "`region`: {length(region)}",
+      "i" = "`drainageArea`: {length(drainageArea)}",
+      "i" = "`dimensionType`: {length(dimensionType)}"))
+  }
 
   # Assemble inputs into data frame
   inputs <- data.frame(region, drainageArea, dimensionType,

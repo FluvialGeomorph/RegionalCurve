@@ -1,5 +1,9 @@
-context("RHG_graph")
-# Compare to values in the regional_curve_graphs data frame
+test_that("check outputs", {
+  d <- RHG_graph(region = "Eastern United States", drainageArea = 1,
+                 dimensionType = "area")
+
+  expect_type(d, "double")
+})
 
 test_that("dimensionType = 'area'", {
   expect_equal(RHG_graph(region = "Eastern United States", drainageArea = 1,

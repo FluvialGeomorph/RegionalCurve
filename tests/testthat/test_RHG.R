@@ -1,8 +1,6 @@
-context("RHG")
-
 test_that("Test expect_secure", {
   skip_on_cran()
-  ## Tests function and this package
+  ## Security check
   oysteR::expect_secure("RegionalCurve")
 })
 
@@ -112,12 +110,15 @@ test_that("vector input", {
                   c(2.7, 0.3, NA))
 })
 
-test_that("check error checks", {
-  expect_error(RHG(1, 1, "depth"))
-  expect_error(RHG("MA", "Yo Mamma", "depth"))
-  expect_error(RHG("MA", 1, 1))
-  expect_error(RHG("Yo Mamma", 1, "depth"))
-  expect_error(RHG("MA", 1, "Yo Mamma"))
-  expect_error(RHG(c("MA", "Yo Mamma"), c(1, 1), c("depth", "depth")))
-  expect_error(RHG(c("MA", "MA"), c(1, 1), c("depth", "Yo Mamma")))
+test_that("check errors", {
+  expect_snapshot(RHG(1, 1, "depth"), error = TRUE)
+  expect_snapshot(RHG("MA", "Yo Mamma", "depth"), error = TRUE)
+  expect_snapshot(RHG("MA", 1, 1), error = TRUE)
+  expect_snapshot(RHG("Yo Mamma", 1, "depth"), error = TRUE)
+  expect_snapshot(RHG("MA", 1, "Yo Mamma"), error = TRUE)
+  expect_snapshot(RHG(c("MA", "Yo Mamma"), c(1, 1), c("depth", "depth")), error = TRUE)
+  expect_snapshot(RHG(c("MA", "MA"), c(1, 1), c("depth", "Yo Mamma")), error = TRUE)
+  expect_snapshot(RHG(c("MA", "MA"), 1, "depth"), error = TRUE)
+  expect_snapshot(RHG("MA", c(1,1), "depth"), error = TRUE)
+  expect_snapshot(RHG("MA", 1, c("depth", "depth")), error = TRUE)
 })
