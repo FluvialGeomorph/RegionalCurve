@@ -28,14 +28,15 @@ knitr::opts_chunk$set(
 An R Package of Hydraulic Regional Curve Relationships
 
 ## Package Status
-
-[![Stable](man/figures/lifecycle-stable.svg)
-[![Project Status: Active The project has reached a stable, usable state
-and is being actively
-developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+<!-- badges: start -->
+[![LifeCycle](https://img.shields.io/badge/lifecycle-stable-green)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![packageversion](https://img.shields.io/badge/Package%20version-0.1.7-orange.svg?style=flat-square)](commits/master)
 [![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/main)
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
+[![Dependencies](https://img.shields.io/badge/dependencies-7/24-orange?style=flat)](#)
+[![License: CC0](https://img.shields.io/badge/License-CC0-lightgrey.svg)](https://choosealicense.com/licenses/cc0-1.0/)
+<!-- badges: end -->
 
 ## Need
 

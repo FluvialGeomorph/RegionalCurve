@@ -16,7 +16,7 @@ Description: This package contains data from a broad range of studies that
     compiled into a single table to provide a comprehensive one-stop source. 
     Accessor functions have also been included to streamline application of 
     dimensions in other analyses. 
-License: file LICENSE
+License: CC0
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 2.10)
@@ -26,9 +26,10 @@ Suggests:
     knitr,
     oysteR,
     patchwork,
+    rcompendium,
     rmarkdown,
     testthat (>= 3.0.0),
-Imports:
+Imports: 
     cli,
     dplyr,
     ggplot2,
@@ -41,3 +42,5 @@ VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Roxygen: list(markdown = TRUE)
+URL: https://github.com/FluvialGeomorph/RegionalCurve
+BugReports: https://github.com/FluvialGeomorph/RegionalCurve/issues

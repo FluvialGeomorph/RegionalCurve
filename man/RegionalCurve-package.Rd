@@ -8,4 +8,12 @@
 \description{
 This package contains data from a broad range of studies that delineate regional hydraulic geometry relationships. These data have been compiled into a single table to provide a comprehensive one-stop source. Accessor functions have also been included to streamline application of dimensions in other analyses.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/FluvialGeomorph/RegionalCurve}
+  \item Report bugs at \url{https://github.com/FluvialGeomorph/RegionalCurve/issues}
+}
+
+}
 \keyword{internal}
