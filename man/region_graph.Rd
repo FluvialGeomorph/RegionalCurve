@@ -21,6 +21,8 @@ A ggplot object.
 \description{
 Creates a Regional Hydraulic Dimension graph for the regions
 provided for the specified dimension.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 }
 \examples{
 regions = c("Minnesota Eastern", "Minnesota Western")

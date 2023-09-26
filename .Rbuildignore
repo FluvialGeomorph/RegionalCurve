@@ -3,9 +3,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$
-^create_package_steps\.R$
-^\.travis\.yml$
-^appveyor\.yml$
 ^README\.Rmd$
 ^README-.*\.png$
 ^\.github$
+^LICENSE\.md$

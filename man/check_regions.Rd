@@ -11,7 +11,7 @@ check_regions(regions)
 package data frame regional_curve$region_name.}
 }
 \value{
-Returns TRUE if the `regions` parameter listed in the package data
+Returns TRUE if the \code{regions} parameter listed in the package data
 frame regional_curve$region_name.
 }
 \description{

@@ -1,10 +1,12 @@
 #' @title Compute Hydraulic Geometry From Graph
 #'
-#' @export
 #' @description  Computes hydraulic dimension (cross sectional area, width,
 #'     or depth) from a built-in table of regional hydraulic curve graph
 #'     coordinates.
 #'
+#' `r lifecycle::badge("stable")`
+#'
+#' @export
 #' @param region        character; The region that a dimension will be
 #'                      calculated for. See the regional_curves$region field
 #'                      for a complete list.

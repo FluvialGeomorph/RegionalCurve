@@ -3,6 +3,8 @@
 #' @description Creates a Regional Hydraulic Dimension graph for the regions
 #' provided for the specified dimension.
 #'
+#' `r lifecycle::badge("stable")`
+#'
 #' @export
 #' @param regions         character; A vector of region names that will be
 #'                        displayed on the graph. For a complete list of
@@ -22,6 +24,7 @@
 #' @importFrom ggplot2 ggplot aes geom_line scale_x_log10 scale_y_log10
 #'             annotation_logticks labs theme_bw theme element_blank
 #'             facet_wrap vars labeller label_wrap_gen
+#' @importFrom rlang .data
 #'
 region_graph <- function(regions, dimension_types) {
   # Check parameters
@@ -40,13 +43,15 @@ region_graph <- function(regions, dimension_types) {
 
   # Calculate region dimensions and label
   df_dim <- region_min_max(regions) %>%
-    filter(dimension %in% dimension_types) %>%
+    filter(.data$dimension %in% dimension_types) %>%
     left_join(dim_labels_df, by = "dimension")
 
   n_dims <- length(unique(df_dim$dimension))
 
   p <- ggplot(df_dim,
-              aes(x = drainage_area, y = value, color = region_name)) +
+              aes(x = .data$drainage_area,
+                  y = .data$value,
+                  color = .data$region_name)) +
     geom_line() +
     scale_x_log10(breaks = breaks, minor_breaks = minor_breaks) +
     scale_y_log10(breaks = breaks, minor_breaks = minor_breaks) +
@@ -58,10 +63,10 @@ region_graph <- function(regions, dimension_types) {
           legend.position = c(.15,.93),
           strip.background = element_blank(),
           strip.placement = "outside") +
-    facet_wrap(vars(label),
+    facet_wrap(vars(.data$label),
                nrow = n_dims,
                scales = "free_y",
                labeller = labeller(label = label_wrap_gen(20)),
                strip.position = "left")
-  p
+  return(p)
 }

@@ -6,6 +6,8 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs")
 #'     a table of regional hydraulic curve coordinates contained in a built-in
 #'     table.
 #'
+#' `r lifecycle::badge("stable")`
+#'
 #' @export
 #' @param region        character; The region that a dimension will be
 #'                      calculated for. See the regional_curves$region field
@@ -22,7 +24,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs")
 #'     value on these graphs (i.e., cross-sectional area, width, mean depth)
 #'     from the x-axis value (i.e., drainage area). Monomial relationships of
 #'     the form \eqn{y=ax^m}, known as power functions, appear as straight
-#'     lines in a log–log graph, with the exponent (\code{m}) and constant
+#'     lines in a log–log graph, with the exponent (`m`) and constant
 #'     (\eqn{a}) term corresponding to slope and intercept of the line
 #'     (\eqn{y = mx + b}).
 #'

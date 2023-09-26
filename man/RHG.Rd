@@ -23,21 +23,23 @@ the dimension (in square miles).}
 }
 \value{
 The numeric value of the requested hydraulic dimension. The units
-        of the dimensions are as follows: area: square feet, depth: feet,
-        width: feet, discharge: cubic feet per second
+of the dimensions are as follows: area: square feet, depth: feet,
+width: feet, discharge: cubic feet per second
 }
 \description{
 Computes regional hydraulic geometry (RHG) dimension (cross
-  sectional area, width, depth, discharge) from a built-in table of regional
-  hydraulic geometry equation coefficients.
+sectional area, width, depth, discharge) from a built-in table of regional
+hydraulic geometry equation coefficients.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 }
 \details{
 This function uses values in the \code{regional_curve} data frame
-    to calculate hydraulic geometry dimensions. Monomial relationships of
-    the form \eqn{y=ax^m}, known as power functions, appear as straight
-    lines in a log–log graph, with the exponent (\code{m}) and constant
-    (\eqn{a}) term corresponding to slope and intercept of the line
-    (\eqn{y = mx + b}).
+to calculate hydraulic geometry dimensions. Monomial relationships of
+the form \eqn{y=ax^m}, known as power functions, appear as straight
+lines in a log–log graph, with the exponent (\code{m}) and constant
+(\eqn{a}) term corresponding to slope and intercept of the line
+(\eqn{y = mx + b}).
 }
 \examples{
 # Calculate the discharge for a 200 sq mi watershed in Massachusetts.

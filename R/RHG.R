@@ -4,6 +4,8 @@
 #'   sectional area, width, depth, discharge) from a built-in table of regional
 #'   hydraulic geometry equation coefficients.
 #'
+#' `r lifecycle::badge("stable")`
+#'
 #' @export
 #' @param region         character; The region that a dimension will be
 #'                       calculated for. For a complete list of regions, see
@@ -17,10 +19,10 @@
 #'         of the dimensions are as follows: area: square feet, depth: feet,
 #'         width: feet, discharge: cubic feet per second
 #'
-#' @details This function uses values in the \code{regional_curve} data frame
+#' @details This function uses values in the `regional_curve` data frame
 #'     to calculate hydraulic geometry dimensions. Monomial relationships of
 #'     the form \eqn{y=ax^m}, known as power functions, appear as straight
-#'     lines in a log–log graph, with the exponent (\code{m}) and constant
+#'     lines in a log–log graph, with the exponent (`m`) and constant
 #'     (\eqn{a}) term corresponding to slope and intercept of the line
 #'     (\eqn{y = mx + b}).
 #'
@@ -35,14 +37,15 @@
 #'
 #' @importFrom cli cli_abort
 #' @importFrom dplyr %>% mutate filter bind_rows
+#' @importFrom rlang .data
 #'
 RHG <- function(region, drainageArea, dimensionType = c("area", "depth",
                                                         "width", "discharge")) {
   # Get regional_curve package data
   rc <- RegionalCurve::regional_curve %>%
     # Remove factors
-    dplyr::mutate(region_name = as.character(region_name)) %>%
-    dplyr::mutate(dimension = as.character(dimension))
+    dplyr::mutate(region_name = as.character(.data$region_name)) %>%
+    dplyr::mutate(dimension = as.character(.data$dimension))
 
   # Check parameters
   check_regions(region)
@@ -75,8 +78,8 @@ RHG <- function(region, drainageArea, dimensionType = c("area", "depth",
 
     # Filter rc for current region and dimension
     rc_i <- rc %>%
-      dplyr::filter(region_name == inputs_i$region,
-                    dimension == inputs_i$dimensionType)
+      dplyr::filter(.data$region_name == inputs_i$region,
+                    .data$dimension == inputs_i$dimensionType)
 
     # Check if region has this dimension
     if(length(rc_i$dimension) == 0) {
