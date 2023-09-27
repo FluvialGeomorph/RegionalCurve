@@ -36,6 +36,7 @@ An R Package of Hydraulic Regional Curve Relationships
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
 [![Dependencies](https://img.shields.io/badge/dependencies-7/24-orange?style=flat)](#)
 [![License: CC0](https://img.shields.io/badge/License-CC0-lightgrey.svg)](https://choosealicense.com/licenses/cc0-1.0/)
+[![codecov](https://codecov.io/gh/FluvialGeomorph/RegionalCurve/graph/badge.svg?token=ITOTR1Y9OX)](https://codecov.io/gh/FluvialGeomorph/RegionalCurve)
 <!-- badges: end -->
 
 ## Need
