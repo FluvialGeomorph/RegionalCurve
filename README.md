@@ -15,11 +15,12 @@ An R Package of Hydraulic Regional Curve Relationships
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![packageversion](https://img.shields.io/badge/Package%20version-0.1.7-orange.svg?style=flat-square)](commits/master)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2023--09--26-yellowgreen.svg)](/commits/main)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2023--09--27-yellowgreen.svg)](/commits/main)
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
 [![Dependencies](https://img.shields.io/badge/dependencies-7/24-orange?style=flat)](#)
 [![License:
 CC0](https://img.shields.io/badge/License-CC0-lightgrey.svg)](https://choosealicense.com/licenses/cc0-1.0/)
+[![codecov](https://codecov.io/gh/FluvialGeomorph/RegionalCurve/graph/badge.svg?token=ITOTR1Y9OX)](https://codecov.io/gh/FluvialGeomorph/RegionalCurve)
 <!-- badges: end -->
 
 ## Need

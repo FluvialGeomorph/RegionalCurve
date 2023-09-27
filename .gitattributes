@@ -1,4 +1,4 @@
-# Basic .gitattributes for a R repo.
+# Basic .gitattributes for an R package.
 
 # Source files
 # ============
@@ -12,11 +12,30 @@
 *.Rmd	  text
 *.R  	  text
 *.Rproj text
-*.[Rr]md   linguist-detectable
-*.Rmd linguist-detectable
-*.RData linguist-detectable
-*.R linguist-language=R
-*.Rmd linguist-language=R
-*.RData linguist-language=R
-*.rda linguist-language=R
-*.Rd linguist-language=R
+*.csv   text
+*.md    text
+
+# detectable
+# =============
+*.R       linguist-detectable
+*.[Rr]md  linguist-detectable
+*.Rd      linguist-detectable
+*.RData   linguist-detectable
+
+# language
+# =============
+*.R       linguist-language=R
+*.Rmd     linguist-language=R
+*.RData   linguist-language=R
+*.rda     linguist-language=R
+*.Rd      linguist-language=R
+*.qmd     linguist-language=R
+*.bib     linguist-language=R
+
+# documentation
+# =============
+*.html    linguist-documentation
+*.tex     linguist-documentation
+*.pdf     linguist-documentation
+*.js      linguist-documentation
+docs/*    linguist-documentation
