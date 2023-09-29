@@ -16,6 +16,11 @@
 #'
 #' @return The value of the requested hydraulic dimension
 #'
+#' @details  Used internally to convert historic studies that do not report
+#'     regional relationships using the "power function" convention.
+#'
+#' @family {data}
+#'
 #' @examples
 #' # Calculate the cross sectional area for a watershed with drainage area = 1
 #' # square mile in the Eastern United States region.

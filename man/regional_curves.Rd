@@ -16,3 +16,11 @@ Returns a data frame of the \code{regional_curve} package data.
 rc <- regional_curves()
 
 }
+\seealso{
+Other {data}: 
+\code{\link{RHG_graph_coefficients}()},
+\code{\link{RHG_graph}()},
+\code{\link{region_min_max}()},
+\code{\link{regional_curve}}
+}
+\concept{{data}}

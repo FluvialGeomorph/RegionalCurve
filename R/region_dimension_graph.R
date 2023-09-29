@@ -15,10 +15,25 @@
 #'
 #' @return A ggplot object.
 #'
+#' @details Creates a regional hydraulic dimension graph styled using
+#' conventions that have emerged in the fluvial geomorphic literature:
+#'
+#' * Drainage Area as the independent variable on the x-axis. Units are
+#'   expressed in imperial units (square miles).
+#' * Hydraulic dimensions (i.e., width, depth, cross sectional area, discharge)
+#'   as the dependent variables on the y-axis. Units are expressed in imperial
+#'   units(i.e, width: feet, depth: feet, cross sectional area: square feet,
+#'   discharge: cubic feet per second).
+#' * Both axes on log scale (aka "log-log graph").
+#'
+#' @family {visualizations}
+#'
 #' @examples
 #' regions = c("Minnesota Eastern", "Minnesota Western")
 #' dimension_type = "width"
 #' region_dimension_graph(regions, dimension_type)
+#'
+#' region_dimension_graph(regions, "depth")
 #'
 #' @importFrom dplyr filter
 #' @importFrom ggplot2 ggplot aes geom_line scale_x_log10 scale_y_log10

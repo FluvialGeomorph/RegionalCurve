@@ -11,6 +11,8 @@
 #'
 #' @return A data frame.
 #'
+#' @family {data}
+#'
 #' @examples
 #' regions = c("Minnesota Eastern", "Minnesota Western")
 #' df <- region_min_max(regions)

@@ -24,9 +24,29 @@ provided for the specified dimension.
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 }
+\details{
+Creates a regional hydraulic dimension graph styled using
+conventions that have emerged in the fluvial geomorphic literature:
+\itemize{
+\item Drainage Area as the independent variable on the x-axis. Units are
+expressed in imperial units (square miles).
+\item Hydraulic dimensions (i.e., width, depth, cross sectional area, discharge)
+as the dependent variables on the y-axis. Units are expressed in imperial
+units(i.e, width: feet, depth: feet, cross sectional area: square feet,
+discharge: cubic feet per second).
+\item Dependent variables (y-axes) are stacked over the dependent variable
+(x-axis).
+\item Both axes on log scale (aka "log-log graph").
+}
+}
 \examples{
 regions = c("Minnesota Eastern", "Minnesota Western")
 dimension_types = c("width", "depth", "area")
 region_graph(regions, dimension_types)
 
 }
+\seealso{
+Other {visualizations}: 
+\code{\link{region_dimension_graph}()}
+}
+\concept{{visualizations}}

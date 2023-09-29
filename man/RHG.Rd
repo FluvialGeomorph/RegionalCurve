@@ -51,3 +51,4 @@ RHG(region        = c("MA","MA","MA", "MA"),
     dimensionType = c("width", "depth", "area", "discharge"))
 
 }
+\concept{{calculations}}

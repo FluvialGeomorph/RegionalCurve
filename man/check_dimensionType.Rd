@@ -19,3 +19,8 @@ values.
 Check to determine the if a valid dimension type has been
 supplied.
 }
+\seealso{
+Other {check functions}: 
+\code{\link{check_regions}()}
+}
+\concept{{check functions}}

@@ -12,6 +12,7 @@ This package contains data from a broad range of studies that delineate regional
 Useful links:
 \itemize{
   \item \url{https://github.com/FluvialGeomorph/RegionalCurve}
+  \item \url{https://fluvialgeomorph.github.io/RegionalCurve/}
   \item Report bugs at \url{https://github.com/FluvialGeomorph/RegionalCurve/issues}
 }
 

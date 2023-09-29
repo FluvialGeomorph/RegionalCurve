@@ -17,4 +17,11 @@ frame regional_curve$region_name.
 \description{
 Checks if the parameter is listed in the package data frame
 regional_curve$region_name.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 }
+\seealso{
+Other {check functions}: 
+\code{\link{check_dimensionType}()}
+}
+\concept{{check functions}}

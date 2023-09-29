@@ -28,6 +28,11 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("regional_curve_graphs")
 #'     (\eqn{a}) term corresponding to slope and intercept of the line
 #'     (\eqn{y = mx + b}).
 #'
+#'     Used internally to convert historic studies that do not report regional
+#'     relationships using the "power function" convention.
+#'
+#' @family {data}
+#'
 #' @examples
 #' # Calculate the slope and intercept for a watershed with drainage area = 1
 #' # square mile in the Eastern United States region.
