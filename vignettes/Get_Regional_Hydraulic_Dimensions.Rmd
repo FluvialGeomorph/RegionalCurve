@@ -1,5 +1,7 @@
 ---
 title: "Get Regional Hydraulic Dimensions"
+description: "How to calculate regional hydraulic dimensions using `RegionalCurve`"
+author: "Michael Dougherty"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:

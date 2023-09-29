@@ -26,6 +26,10 @@ coordinates.
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 }
+\details{
+Used internally to convert historic studies that do not report
+regional relationships using the "power function" convention.
+}
 \examples{
 # Calculate the cross sectional area for a watershed with drainage area = 1
 # square mile in the Eastern United States region.
@@ -34,3 +38,11 @@ RHG_graph(region = "Eastern United States",
           dimensionType = "area")
 
 }
+\seealso{
+Other {data}: 
+\code{\link{RHG_graph_coefficients}()},
+\code{\link{region_min_max}()},
+\code{\link{regional_curves}()},
+\code{\link{regional_curve}}
+}
+\concept{{data}}

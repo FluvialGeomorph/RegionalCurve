@@ -1,0 +1,35 @@
+url: https://fluvialgeomorph.github.io/RegionalCurve/
+template:
+  bootstrap: 5
+  bootswatch: sandstone
+
+authors:
+  Michael Dougherty:
+    href: "https://github.com/mpdougherty"
+  footer:
+    roles: [cre, aut]
+    text: "Created by"
+
+reference:
+- title: "Calculate"
+  desc: "Calculate regional hydraulic geometry"
+  contents:
+  - RHG
+- title: "Visualize"
+  desc: "Visualize regional hydraulic geometry"
+  contents:
+  - region_dimension_graph
+  - region_graph
+- title: "Data"
+  desc: "Process and review regional hydraulic geometry data"
+  contents:
+  - regional_curve
+  - regional_curves
+  - region_min_max
+  - RHG_graph_coefficients
+  - RHG_graph
+- title: "Check Data"
+  desc: "Calculate Regional Hydraulic Geometry"
+  contents:
+  - check_dimensionType
+  - check_regions

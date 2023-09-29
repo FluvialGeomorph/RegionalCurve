@@ -24,3 +24,11 @@ regions = c("Minnesota Eastern", "Minnesota Western")
 df <- region_min_max(regions)
 
 }
+\seealso{
+Other {data}: 
+\code{\link{RHG_graph_coefficients}()},
+\code{\link{RHG_graph}()},
+\code{\link{regional_curves}()},
+\code{\link{regional_curve}}
+}
+\concept{{data}}

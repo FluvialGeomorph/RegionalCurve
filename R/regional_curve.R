@@ -18,4 +18,6 @@
 #'   \item{reference}{the citation of the study}
 #' }
 #'
+#' @family {data}
+#'
 "regional_curve"

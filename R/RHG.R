@@ -26,6 +26,8 @@
 #'     (\eqn{a}) term corresponding to slope and intercept of the line
 #'     (\eqn{y = mx + b}).
 #'
+#' @family {calculations}
+#'
 #' @examples
 #' # Calculate the discharge for a 200 sq mi watershed in Massachusetts.
 #' RHG(region = "MA", drainageArea = 200, dimensionType = "discharge")

@@ -36,6 +36,10 @@ the form \eqn{y=ax^m}, known as power functions, appear as straight
 lines in a log–log graph, with the exponent (\code{m}) and constant
 (\eqn{a}) term corresponding to slope and intercept of the line
 (\eqn{y = mx + b}).
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{Used internally to convert historic studies that do not report regional
+relationships using the "power function" convention.
+}\if{html}{\out{</div>}}
 }
 \examples{
 # Calculate the slope and intercept for a watershed with drainage area = 1
@@ -45,3 +49,11 @@ RHG_graph_coefficients(region = "Eastern United States",
                        dimensionType = "area")
 
 }
+\seealso{
+Other {data}: 
+\code{\link{RHG_graph}()},
+\code{\link{region_min_max}()},
+\code{\link{regional_curves}()},
+\code{\link{regional_curve}}
+}
+\concept{{data}}

@@ -3,12 +3,16 @@
 #' @description Checks if the parameter is listed in the package data frame
 #' regional_curve$region_name.
 #'
+#' `r lifecycle::badge("stable")`
+#'
 #' @export
 #' @param regions        character vector; A vector of regions listed in the
 #'                       package data frame regional_curve$region_name.
 #'
 #' @return Returns TRUE if the `regions` parameter listed in the package data
 #' frame regional_curve$region_name.
+#'
+#' @family {check functions}
 #'
 #' @importFrom cli cli_abort
 #'

@@ -11,6 +11,8 @@
 #' @return Returns TRUE if the vector of dimension types only contain valid
 #' values.
 #'
+#' @family {check functions}
+#'
 #' @importFrom cli cli_abort
 #'
 check_dimensionType <- function(dimensionType) {

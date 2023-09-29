@@ -5,6 +5,8 @@
 #' @export
 #' @return A data frame of the `regional_curve` package data.
 #'
+#' @family {data}
+#'
 #' @examples
 #' rc <- regional_curves()
 #'
