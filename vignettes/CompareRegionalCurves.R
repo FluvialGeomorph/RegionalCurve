@@ -12,7 +12,9 @@ MN_area <- region_dimension_graph(regions, "area")
 MN_width / MN_depth / MN_area
 
 ## ----fig.height=6, fig.width=5.5----------------------------------------------
-regions_4 = c("MA", "VA Piedmont")
-dimension_types_4 = c("width", "depth", "area", "discharge")
-region_graph(regions_4, dimension_types_4)
+regions_4 = c("Minnesota Eastern", "Minnesota Western",
+              "Southern Driftless", "Lower Southern Driftless")
+dimension_types_4 = c("width", "depth", "area")
+p <- region_graph(regions_4, dimension_types_4)
+p
 
