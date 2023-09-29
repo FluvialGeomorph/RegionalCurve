@@ -1,5 +1,7 @@
 ---
 title: "Compare Regional Curves"
+description: "Getting started comparing regional curves."
+author: "Michael Dougherty"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:

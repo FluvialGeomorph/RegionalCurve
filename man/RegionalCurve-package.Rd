@@ -6,7 +6,7 @@
 \alias{RegionalCurve-package}
 \title{RegionalCurve: A Collection of Hydraulic Regional Curve Relationships}
 \description{
-This package contains data from a broad range of studies that delineate regional hydraulic geometry relationships. These data have been compiled into a single table to provide a comprehensive one-stop source. Accessor functions have also been included to streamline application of dimensions in other analyses.
+Data from studies that delineate regional hydraulic geometry relationships. These data have been compiled from a wide range of studies into a single table to provide a comprehensive one-stop source. Accessor functions have also been included to streamline the application of dimensions in other analyses and visualizations.
 }
 \seealso{
 Useful links:
@@ -14,6 +14,15 @@ Useful links:
   \item \url{https://github.com/FluvialGeomorph/RegionalCurve}
   \item \url{https://fluvialgeomorph.github.io/RegionalCurve/}
   \item Report bugs at \url{https://github.com/FluvialGeomorph/RegionalCurve/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Michael Dougherty \email{Michael.P.Dougherty@usace.army.mil} (\href{https://orcid.org/0000-0002-1465-5927}{ORCID})
+
+Authors:
+\itemize{
+  \item Christopher Haring \email{Christopher.P.Haring@usace.army.mil}
 }
 
 }
