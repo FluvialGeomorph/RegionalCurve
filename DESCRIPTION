@@ -38,9 +38,9 @@ Imports:
     stringr,
     tidyr
 RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/testthat/parallel: true
-Roxygen: list(markdown = TRUE)
-URL: https://github.com/FluvialGeomorph/RegionalCurve
+URL: https://github.com/FluvialGeomorph/RegionalCurve, https://fluvialgeomorph.github.io/RegionalCurve/
 BugReports: https://github.com/FluvialGeomorph/RegionalCurve/issues
