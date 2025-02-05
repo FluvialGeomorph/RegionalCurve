@@ -1,6 +1,6 @@
 url: https://fluvialgeomorph.github.io/RegionalCurve/
 template:
-  bootstrap: 5
+  bootstrap: 3
   bootswatch: sandstone
 
 authors:

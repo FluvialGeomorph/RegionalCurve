@@ -9,7 +9,11 @@ Authors@R: c(
          comment = c(ORCID = "0000-0002-1465-5927")),
   person("Christopher", "Haring", 
          email = "Christopher.P.Haring@usace.army.mil", 
-         role = c("aut"))
+         role = c("aut"),
+         comment = c(ORCID = "0009-0004-3834-9811")),
+  person("Thomas", "Darby", 
+         email = "Thomas.A.Darby@usace.army.mil",
+         role = c("ctb"))
   )
 Maintainer: Michael Dougherty <Michael.P.Dougherty@usace.army.mil>
 Description: Data from studies that delineate regional hydraulic geometry 
@@ -37,7 +41,6 @@ Suggests:
     knitr,
     oysteR,
     patchwork,
-    rcompendium,
     rmarkdown,
     testthat (>= 3.0.0)
 VignetteBuilder: 
@@ -47,4 +50,4 @@ Config/testthat/parallel: true
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
