@@ -1,63 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/404.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/articles/CompareRegionalCurves.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/articles/Get_Regional_Hydraulic_Dimensions.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/index.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/RHG.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/RHG_graph.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/RHG_graph_coefficients.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/RegionalCurve-package.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/check_dimensionType.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/check_regions.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/region_dimension_graph.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/region_graph.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/region_min_max.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/regional_curve.html</loc>
-  </url>
-  <url>
-    <loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/regional_curves.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/404.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/LICENSE.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/articles/CompareRegionalCurves.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/articles/Get_Regional_Hydraulic_Dimensions.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/articles/index.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/authors.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/index.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/news/index.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/RHG.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/RHG_graph.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/RHG_graph_coefficients.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/RegionalCurve-package.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/check_dimensionType.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/check_regions.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/index.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/region_dimension_graph.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/region_graph.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/region_min_max.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/regional_curve.html</loc></url>
+<url><loc>https://fluvialgeomorph.github.io/RegionalCurve/reference/regional_curves.html</loc></url>
 </urlset>
+
