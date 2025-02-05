@@ -18,8 +18,8 @@ rc <- regional_curves()
 }
 \seealso{
 Other {data}: 
-\code{\link{RHG_graph_coefficients}()},
 \code{\link{RHG_graph}()},
+\code{\link{RHG_graph_coefficients}()},
 \code{\link{region_min_max}()},
 \code{\link{regional_curve}}
 }

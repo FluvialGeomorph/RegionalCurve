@@ -29,8 +29,8 @@ in North America. The variables in this dataset are as follows:
 }
 \seealso{
 Other {data}: 
-\code{\link{RHG_graph_coefficients}()},
 \code{\link{RHG_graph}()},
+\code{\link{RHG_graph_coefficients}()},
 \code{\link{region_min_max}()},
 \code{\link{regional_curves}()}
 }

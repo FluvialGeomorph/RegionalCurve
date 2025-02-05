@@ -42,7 +42,7 @@ RHG_graph(region = "Eastern United States",
 Other {data}: 
 \code{\link{RHG_graph_coefficients}()},
 \code{\link{region_min_max}()},
-\code{\link{regional_curves}()},
-\code{\link{regional_curve}}
+\code{\link{regional_curve}},
+\code{\link{regional_curves}()}
 }
 \concept{{data}}
