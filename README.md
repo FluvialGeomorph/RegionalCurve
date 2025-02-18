@@ -47,7 +47,7 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 -   [Flood and Coastal Risk
     Management](https://www.erdc.usace.army.mil/Locations/CHL/Flood-Coastal-Risk-Management/)
 -   [Ecosystem Management and Restoration Research Program
-    (EMRRP)](https://emrrp.el.erdc.dren.mil).
+    (EMRRP)](https://emrrp.el.erdc.dren.mil)
 -   [Regional Sediment Management Program
     (RSM)](https://rsm.usace.army.mil/)
 -   [Mississippi River Geomorphology and Potamology Program
@@ -56,13 +56,15 @@ provided by the following US Army Corps of Engineers (USACE) programs:
     (FRM)](https://www.iwr.usace.army.mil/Missions/Flood-Risk-Management/Flood-Risk-Management-Program/)
 -   [Engineering With Nature (EWN)](https://ewn.el.erdc.dren.mil/)
 
-<img src="man/figures/chl.png" width=125 align="right" />
-<img src="man/figures/EWN_200.png" height=75 align="right" />
-<img src="man/figures/SilverJackets_200.png" height=75 align="right" />
-<img src="man/figures/FRMP_200.png" height=75 align="right" />
-<img src="man/figures/MRG&P_300.png" height=75 align="right" />
-<img src="man/figures/RSM_200.png" height=75 align="right" />
-<img src="man/figures/EMRRP_logo_200.png" height=75 align="right" />
+<p float="left">
+<img src="man/figures/chl.png" height=75 />
+<img src="man/figures/EWN_200.png" height=75 />
+<img src="man/figures/SilverJackets_200.png" height=75 />
+<img src="man/figures/FRMP_200.png" height=75 />
+<img src="man/figures/MRG&P_300.png" height=75 />
+<img src="man/figures/RSM_200.png" height=75 />
+<img src="man/figures/EMRRP_logo_200.png" height=75 />
+</p>
 
 ## Authors
 
