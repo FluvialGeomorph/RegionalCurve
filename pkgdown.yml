@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   CompareRegionalCurves: CompareRegionalCurves.html
   Get_Regional_Hydraulic_Dimensions: Get_Regional_Hydraulic_Dimensions.html
-last_built: 2025-02-18T18:13Z
+last_built: 2025-02-18T18:15Z
 urls:
   reference: https://fluvialgeomorph.github.io/RegionalCurve/reference
   article: https://fluvialgeomorph.github.io/RegionalCurve/articles
