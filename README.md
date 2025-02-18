@@ -58,12 +58,12 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 
 <p float="left">
 <img src="man/figures/chl.png" height=75 />
-<img src="man/figures/EWN_200.png" height=75 />
-<img src="man/figures/SilverJackets_200.png" height=75 />
-<img src="man/figures/FRMP_200.png" height=75 />
-<img src="man/figures/MRG&P_300.png" height=75 />
-<img src="man/figures/RSM_200.png" height=75 />
 <img src="man/figures/EMRRP_logo_200.png" height=75 />
+<img src="man/figures/RSM_200.png" height=75 />
+<img src="man/figures/MRG&P_300.png" height=75 />
+<img src="man/figures/FRMP_200.png" height=75 />
+<img src="man/figures/SilverJackets_200.png" height=75 />
+<img src="man/figures/EWN_200.png" height=75 />
 </p>
 
 ## Authors
