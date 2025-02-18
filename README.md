@@ -37,9 +37,9 @@ gap by:
 -   Providing assessor functions to streamline application of these
     relationships in other studies.
 
-<img src="man/figures/chl.png" width=125 align="right" />
-
 ## Funding
+
+<img src="man/figures/chl.png" width=125 align="right" />
 
 Funding for development and maintenance of FluvialGeomorph has been
 provided by the following US Army Corps of Engineers (USACE) programs:
