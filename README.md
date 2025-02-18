@@ -66,47 +66,18 @@ provided by the following US Army Corps of Engineers (USACE) programs:
 
 ## Authors
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD \* Christopher Haring, Fluvial
-Geomorphologist/Research Physical Scientist, U.S. Army Corps of
-Engineers
-
-<a itemprop="sameAs" content="https://orcid.org/0009-0004-3834-9811" href="https://orcid.org/0009-0004-3834-9811" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon" style="width:1em;margin-right:.5em;"/>https://orcid.org/0009-0004-3834-9811</a>
-
--   Michael Dougherty, Geographer, U.S. Army Corps of Engineers
-    <a itemprop="sameAs" content="https://orcid.org/0000-0002-1465-5927" href="https://orcid.org/0000-0002-1465-5927" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0002-1465-5927</a>
-
-    =======
--   Michael Dougherty, Geographer, U.S. Army Corps of Engineers
-    <a itemprop="sameAs" content="https://orcid.org/0000-0002-1465-5927" href="https://orcid.org/0000-0002-1465-5927" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon" style="width:1em;margin-right:.5em;"/>https://orcid.org/0000-0002-1465-5927</a>
 -   Christopher Haring, Fluvial Geomorphologist/Research Physical
     Scientist, U.S. Army Corps of Engineers
     <a itemprop="sameAs" content="https://orcid.org/0009-0004-3834-9811" href="https://orcid.org/0009-0004-3834-9811" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon" style="width:1em;margin-right:.5em;"/>https://orcid.org/0009-0004-3834-9811</a>
--   Thomas Darby, Geographer, U.S. Army Corps of Engineers
-    &gt;&gt;&gt;&gt;&gt;&gt;&gt;
-    7e32129ae2bf7ac62f1bf29592ec2d87d326201c
+-   Michael Dougherty, Geographer, U.S. Army Corps of Engineers
+    <a itemprop="sameAs" content="https://orcid.org/0000-0002-1465-5927" href="https://orcid.org/0000-0002-1465-5927" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0002-1465-5927</a>
 
 ## Install
 
 To install the `RegionalCurve` package, install from GitHub using the
 `remotes` package:
 
-    <<<<<<< HEAD
     remotes::install_github(repo = "FluvialGeomorph/RegionalCurve@*release)
-    =======
-    library(devtools)
-    install_github(repo = "FluvialGeomorph/RegionalCurve@*release", 
-                   build_vignettes = TRUE)
-
-## Vignettes
-
-View the vignettes to get started using the package.
-
-    # View the vignettes in a web browser
-    browseVignettes("RegionalCurve")
-
-    # Open a specific vignette in the RStudio help window
-    vignette("Get_Regional_Hydraulic_Dimensions")
-    >>>>>>> 7e32129ae2bf7ac62f1bf29592ec2d87d326201c
 
 ## Calculating Hyrdaulic Dimensions
 
