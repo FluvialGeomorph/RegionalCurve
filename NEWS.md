@@ -1,3 +1,12 @@
+# RegionalCurve v0.1.7 (Release date: 2025-02-05)
+
+## Major Changes
+* None
+
+## Bug Fixes
+* Fixed broken tests. 
+
+
 # RegionalCurve v0.1.6 (Release date: 2023-09-07)
 
 ## Major Changes

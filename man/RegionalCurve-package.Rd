@@ -22,7 +22,12 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Christopher Haring \email{Christopher.P.Haring@usace.army.mil}
+  \item Christopher Haring \email{Christopher.P.Haring@usace.army.mil} (\href{https://orcid.org/0009-0004-3834-9811}{ORCID})
+}
+
+Other contributors:
+\itemize{
+  \item Thomas Darby \email{Thomas.A.Darby@usace.army.mil} [contributor]
 }
 
 }

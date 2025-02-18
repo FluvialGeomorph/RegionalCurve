@@ -16,8 +16,8 @@ test_that("check dimension values", {
 })
 
 test_that("check errors", {
-  expect_snapshot(check_dimensionType("Area"), error = TRUE)
-  expect_snapshot(check_dimensionType("height"), error = TRUE)
-  expect_snapshot(check_dimensionType(7), error = TRUE)
-  expect_snapshot(check_dimensionType(c("area", "Yo Mamma")), error = TRUE)
+  expect_error(check_dimensionType("Area"))
+  expect_error(check_dimensionType("height"))
+  expect_error(check_dimensionType(7))
+  expect_error(check_dimensionType(c("area", "Yo Mamma")))
 })

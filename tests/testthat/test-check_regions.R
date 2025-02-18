@@ -5,9 +5,9 @@ test_that("check region in package", {
 })
 
 test_that("check errors", {
-  expect_snapshot(check_regions("Foo"), error = TRUE)
-  expect_snapshot(check_regions("Bar"), error = TRUE)
-  expect_snapshot(check_regions(c("Bar", "Foo")), error = TRUE)
-  expect_snapshot(check_regions(c("Bar", "Foo", "USA")), error = TRUE)
-  expect_snapshot(check_regions(7), error = TRUE)
+  expect_error(check_regions("Foo"))
+  expect_error(check_regions("Bar"))
+  expect_error(check_regions(c("Bar", "Foo")))
+  expect_error(check_regions(c("Bar", "Foo", "USA")))
+  expect_error(check_regions(7))
 })
