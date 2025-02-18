@@ -15,7 +15,7 @@ An R Package of Hydraulic Regional Curve Relationships
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![packageversion](https://img.shields.io/badge/Package%20version-0.1.7-orange.svg?style=flat-square)](commits/master)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2023--09--27-yellowgreen.svg)](/commits/main)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2025--02--18-yellowgreen.svg)](/commits/main)
 [![Licence](https://img.shields.io/badge/licence-CC0-blue.svg)](http://choosealicense.com/licenses/cc0-1.0/)
 [![Dependencies](https://img.shields.io/badge/dependencies-7/24-orange?style=flat)](#)
 [![License:
@@ -37,13 +37,15 @@ gap by:
 -   Providing assessor functions to streamline application of these
     relationships in other studies.
 
-<img src="man/figures/HDQLO-03_h120.jpg" width="125" align="right"/>
+<img src="man/figures/chl.png" width=125 align="right" />
 
 ## Funding
 
 Funding for development and maintenance of FluvialGeomorph has been
 provided by the following US Army Corps of Engineers (USACE) programs:
 
+-   [Flood and Coastal Risk
+    Management](https://www.erdc.usace.army.mil/Locations/CHL/Flood-Coastal-Risk-Management/)
 -   [Ecosystem Management and Restoration Research Program
     (EMRRP)](https://emrrp.el.erdc.dren.mil).
 -   [Regional Sediment Management Program
@@ -52,33 +54,30 @@ provided by the following US Army Corps of Engineers (USACE) programs:
     (MRG&P)](https://www.mvd.usace.army.mil/Missions/Mississippi-River-Science-Technology/MS-River-Geomorphology-Potamology/)
 -   [Flood Risk Management Program
     (FRM)](https://www.iwr.usace.army.mil/Missions/Flood-Risk-Management/Flood-Risk-Management-Program/)
+-   [Engineering With Nature (EWN)](https://ewn.el.erdc.dren.mil/)
 
-<img src="man/figures/FRMP_300.png" height="75" align="right"/><img src="man/figures/MRG&amp;P_300.png" height="75" align="right"/><img src="man/figures/RSMlogo.png" height="75" align="right"/><img src="man/figures/EMRRP_logo_300.png" height="75" align="right"/>
+<img src="man/figures/chl.png" width=125 align="right" />
+<img src="man/figures/EWN_200.png" height=75 align="right" />
+<img src="man/figures/SilverJackets_200.png" height=75 align="right" />
+<img src="man/figures/FRMP_200.png" height=75 align="right" />
+<img src="man/figures/MRG&P_300.png" height=75 align="right" />
+<img src="man/figures/RSM_200.png" height=75 align="right" />
+<img src="man/figures/EMRRP_logo_200.png" height=75 align="right" />
 
 ## Authors
 
--   Michael Dougherty, Geographer, U.S. Army Corps of Engineers
-    <a itemprop="sameAs" content="https://orcid.org/0000-0002-1465-5927" href="https://orcid.org/0000-0002-1465-5927" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon" style="width:1em;margin-right:.5em;"/>https://orcid.org/0000-0002-1465-5927</a>
 -   Christopher Haring, Fluvial Geomorphologist/Research Physical
     Scientist, U.S. Army Corps of Engineers
+    <a itemprop="sameAs" content="https://orcid.org/0009-0004-3834-9811" href="https://orcid.org/0009-0004-3834-9811" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD icon" style="width:1em;margin-right:.5em;"/>https://orcid.org/0009-0004-3834-9811</a>
+-   Michael Dougherty, Geographer, U.S. Army Corps of Engineers
+    <a itemprop="sameAs" content="https://orcid.org/0000-0002-1465-5927" href="https://orcid.org/0000-0002-1465-5927" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0002-1465-5927</a>
 
 ## Install
 
 To install the `RegionalCurve` package, install from GitHub using the
-`devtools` package:
+`remotes` package:
 
-    library(devtools)
-    install_github(repo = "FluvialGeomorph/RegionalCurve", build_vignettes = TRUE)
-
-## Vignettes
-
-View the vignettes to get started using the package.
-
-    # View the vignettes in a web browser
-    browseVignettes("RegionalCurve")
-
-    # Open a specific vignette in the RStudio help window
-    vignette("Get_Regional_Hydraulic_Dimensions")
+    remotes::install_github(repo = "FluvialGeomorph/RegionalCurve@*release)
 
 ## Calculating Hyrdaulic Dimensions
 
@@ -123,7 +122,7 @@ The table below lists the regional hydraulic dimension relationship
 studies included in this package. It lists the dimensions calculated for
 each regional analysis.
 
-<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<table class="table table-striped table-hover" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
